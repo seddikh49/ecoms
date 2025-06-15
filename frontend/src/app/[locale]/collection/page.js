@@ -14,7 +14,7 @@ export const metadata = {
 
 export default async function Collection() {
 
-const products = await fetchProducts();
+
 
     return (
         <>
@@ -30,7 +30,7 @@ const products = await fetchProducts();
                         <TextContent text={'جميع المنتجات'} />
                     </div>
                     <div className="">
-                        <Products allProducts={products} />
+                        <Products />
                     </div>
                 </div>
 

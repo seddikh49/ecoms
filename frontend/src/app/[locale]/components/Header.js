@@ -1,4 +1,5 @@
 'use client';
+import { useTranslations } from 'next-intl';
 
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
@@ -13,6 +14,8 @@ export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [isSticky, setIsSticky] = useState(false);
 
+const t = useTranslations('links')
+const navKeys = ['home', 'collection', 'about', 'contact'];
 
 
   const navItems = [

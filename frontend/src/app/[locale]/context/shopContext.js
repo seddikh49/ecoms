@@ -2,8 +2,8 @@
 import axios from "axios";
 import React, { createContext, useContext, useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import { wilayas } from "../../public/‏‏assets/frontend_assets/wilayas";
-import { communes } from "../../public/‏‏assets/frontend_assets/communes";
+import { wilayas } from "../../../../public/‏‏assets/frontend_assets/wilayas";
+import { communes } from "../../../../public/‏‏assets/frontend_assets/communes";
 import { assets } from "@/public/‏‏assets/frontend_assets/assets";
 
 
@@ -18,7 +18,7 @@ export const ShopProvider = ({ children, initialProducts }) => {
   const delivery_fee = 10
 
   const [products, setProducts] = useState(initialProducts || []);
-
+  console.log(products)
   const [sortValue, setSortValue] = useState('');
   const [search, setSearch] = useState();
   const router = useRouter();
@@ -65,6 +65,8 @@ export const ShopProvider = ({ children, initialProducts }) => {
         return pro.category === checkedCategory
       })
       setAllProducts(filtredCategory)
+    }else{
+      setAllProducts(products)
     }
   }
 
