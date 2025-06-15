@@ -15,7 +15,7 @@ const OrderContextProvider = ({ children }) => {
 
 
   const fetchOrders = async () => {
-    console.log("fetched")
+    
     try {
       const response = await axios.get(`${backEndUrl}/api/order/list`)
  

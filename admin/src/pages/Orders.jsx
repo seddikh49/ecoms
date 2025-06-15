@@ -79,7 +79,7 @@ const Orders = () => {
   
 
   const filterStatus = () => {
-    console.log("update")
+   
     if (changeState === 'حسب الحالة') {
       return setorders(copiedOrders)
     }
@@ -92,7 +92,7 @@ const Orders = () => {
 
 
   const filterTimeStatus = () => {
-       console.log('time')
+      
     if (timeStatus === 'جديد') {
       const filterTime = [...orders].sort((a, b) => {
         return new Date(b.date) - new Date(a.date)

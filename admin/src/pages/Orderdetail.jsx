@@ -46,7 +46,7 @@ const Orderdetail = () => {
             const response = await axios.put(`${backEndUrl}/api/order/update/${id}`, {
                 status: newStatus
             });
-            console.log(response.data)
+            
         setStatus(response.data.status)
         se
         } catch (err) {

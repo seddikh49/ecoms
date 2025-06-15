@@ -33,7 +33,7 @@ const List = ({ token }) => {
     
     try {
       const response = await axios.post(`${backEndUrl}/api/product/remove`, { id }, { headers: { token } })
-      console.log(response)
+      
       if (response.data.success) {
         toast.success(response.data.msg)
         fetchList()
