@@ -1,8 +1,9 @@
 'use client';
+import { useTranslations, useLocale } from 'next-intl';
 
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
-import { usePathname } from 'next/navigation';
+import { usePathname, useSearchParams, useRouter } from 'next/navigation';
 import { Search, Menu, X } from 'lucide-react';
 import { useShop } from '../context/shopContext';
 
@@ -10,17 +11,37 @@ import { useShop } from '../context/shopContext';
 export default function Header() {
   const { setSearch, } = useShop()
   const pathname = usePathname();
+  const router = useRouter();
+  const locale = useLocale(); // يعيد: "ar", "en", ...
+  const [language, setLanguage] = useState(locale);
+
   const [menuOpen, setMenuOpen] = useState(false);
   const [isSticky, setIsSticky] = useState(false);
 
 
+  const t = useTranslations('links')
+  const navLinks = ['home', 'collection', 'about', 'contact'];
+
+
+
+
 
   const navItems = [
-    { label: 'الرئيسية', href: '/' },
+    { label: 'الرئيسية', href: '/ar' || '/en' },
     { label: 'المنتجات', href: '/collection' },
     { label: 'من نحن', href: '/about' },
     { label: 'تواصل معنا', href: '/contact' },
   ];
+
+  const changeLanguage = (e) => {
+    console.log(language)
+    const newLocale = e.target.value;
+    const segments = pathname.split('/');
+    segments[1] = newLocale;
+    router.replace(segments.join('/'));
+
+  }
+
 
 
   useEffect(() => {
@@ -50,25 +71,29 @@ export default function Header() {
 
         {/* روابط التنقل */}
         <nav className={`xl:flex md:hidden lg:flex xm:hidden sm:hidden gap-5 `}     >
-          {navItems.map((item) => (
+          {navLinks.map((link) => (
             <Link
-              key={item.href}
-              href={item.href}
-              className={`font-bold text-lg transition hover:text-orange-500 ${pathname === item.href ? 'text-orange-500' : 'text-gray-600'
+              key={t(`${link}.href`)}
+              href={t(`${link}.href`)}
+              className={`font-bold text-lg transition hover:text-orange-500 ${`/${pathname.split('/')[pathname.split('/').length - 1]}` === t(`${link}.href`) ? 'text-orange-500' : 'text-gray-600'
                 }`}
             >
-              {item.label}
+              {t(`${link}.label`)}
             </Link>
           ))}
         </nav>
 
         {/* أيقونة البحث + القائمة للجوال */}
-        <div className=" xl:w-80 flex items-center gap-2 space-x-4 space-x-reverse">
+        <div className=" xl:w-80 flex items-center gap-2 space-x-4  space-x-reverse">
           {/* مكان الأيقونة محفوظ دائمًا */}
+          <select onChange={(e) => changeLanguage(e)} defaultValue={language}>
+            <option value='ar' key='ar'>العربية </option>
+            <option value='an' key='an'>الانجليزية </option>
+          </select>
           <div className=" flex justify-end text-gray-600 ">
-            {pathname === '/collection' && (
+            {pathname === 'ar/collection' || 'en/collection' && (
 
-              <div className="relative max-w-md xl:w-80  h-10 md:w-44 sm:w-44 xm:w-24 lg:w-64 ">
+              <div className="relative max-w-md xl:w-50  h-10 md:w-44 sm:w-44 xm:w-24 lg:w-64 ">
                 <input
                   onChange={(e) => setSearch(e.target.value)}
                   type="text"
@@ -101,7 +126,7 @@ export default function Header() {
               key={item.href}
               href={item.href}
               onClick={() => setMenuOpen(false)}
-              className={`text-base font-medium hover:text-pink-600 ${pathname === item.href ? 'text-pink-700' : 'text-gray-800'
+              className={`text-base font-medium hover:text-pink-600 ${`/${pathname.split('/')[pathname.split('/').length - 1]}` === item.href ? 'text-pink-700' : 'text-gray-800'
                 }`}
             >
               {item.label}

@@ -3,7 +3,7 @@ import jwt from 'jsonwebtoken'
 const authAdmin = async (req, res, next) => {
     try {
         const { token } = req.headers
-
+        console.log(token)
         // this is for postman post
         // if (!token.split(' ')[1]) {
         //     return res.json({ msg: "you don't have authorization to access this api" })

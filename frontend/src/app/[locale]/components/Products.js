@@ -1,22 +1,23 @@
-// "use client"
-// import { useShop } from "../context/shopContext";
+"use client"
+import { useShop } from "../context/shopContext";
 import Image from "next/image";
 
 import Link from "next/link";
+import { useEffect } from "react";
 
 
 
-export default function Products({allProducts}) {
-  // const { allProducts } = useShop();
-  console.log(allProducts)
+export default function Products() {
+  const {allProducts } = useShop();
+ 
 
-  
+
 
   return (
     <>
       <div className='grid xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-3 sm:grid-cols-1 xm:grid-cols-1  w-full gap-10  mt-10'>
 
-        {allProducts?.map((product, index) => (
+        {allProducts.map((product, index) => (
           <div
             key={index}
             className="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition duration-300 p-4 w-full  mx-auto"

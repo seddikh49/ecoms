@@ -1,0 +1,20 @@
+{
+  "links": {
+    "home": {
+      "label": "الصفحة الرئيسية",
+      "href": "/"
+    },
+    "collection": {
+      "label": "المنتجات",
+      "href": "/collection"
+    },
+    "about": {
+      "label": "من نحن",
+      "href": "/about"
+    },
+    "contact": {
+      "label": "اتصل بنا",
+      "href": "/contact"
+    }
+  }
+}

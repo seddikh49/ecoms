@@ -61,7 +61,7 @@ const Lottie = dynamic(() => import('lottie-react'), { ssr: false });
 
 // تأكد من أن المسار لا يحتوي على رموز خفية
 // import contact from '../../public/assets/animation/contact';
-import contact from '../../public/‏‏assets/animation/contact.json'
+import contact from '../../../../public/‏‏assets/animation/contact.json'
 
 
 const Contact = () => {

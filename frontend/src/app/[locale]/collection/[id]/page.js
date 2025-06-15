@@ -1,6 +1,6 @@
 
 import axios from "axios";
-import ProductDetails from "@/app/components/ProductDetails";
+import ProductDetails from "../../components/ProductDetails";
 import { fetchProducts } from "@/lib/fetchProducts";
 
 

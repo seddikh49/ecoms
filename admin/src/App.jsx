@@ -22,26 +22,32 @@ export const backEndUrl = import.meta.env.VITE_BACK_END_URL
 
 const App = () => {
   const { isAdmin, setIsAdmin } = useContext(OrderContext)
-  const [loading, setloading] = useState();
+  const [loading, setloading] = useState(false);
   const [token, setToken] = useState(localStorage.getItem('token') ? localStorage.getItem('token') : '');
 
 
   const verifyToken = async () => {
-    setloading(true)
+    
+
     if (!token) {
       setIsAdmin(false)
       setloading(false)
       return
     } else {
-
+     
       try {
         const response = await axios.post(`${backEndUrl}/api/user/verify-token`, {}, {
           headers: { token: token }
         })
+        
+        console.log("✅ Response received:", response.data.role);
         if (response.data.role === "admin") {
           setIsAdmin(true)
+          // setloading(false)
         } else {
           setIsAdmin(false)
+          setloading(false)
+
           setToken('')
           localStorage.removeItem('token')
         }
@@ -62,7 +68,7 @@ const App = () => {
   return (
     loading ? (
       <div className='flex justify-center items-center w-full h-screen'>
-              <Lottie animationData={loadingAnimation} loop={true} style={{ width: 400, height: 400 }}   />
+        <Lottie animationData={loadingAnimation} loop={true} style={{ width: 400, height: 400 }} />
 
       </div>
     ) :

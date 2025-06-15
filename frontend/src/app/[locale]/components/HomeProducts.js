@@ -3,7 +3,7 @@ import React from 'react'
 import { useShop } from "../context/shopContext";
 import Image from 'next/image';
 import Link from 'next/link';
-import TextContent from '../components/TextContent';
+import TextContent from './TextContent';
 import { motion } from "framer-motion";
 
 

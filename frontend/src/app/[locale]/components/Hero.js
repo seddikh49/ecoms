@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react'
 import { FaShippingFast } from "react-icons/fa";
 // import Lottie from 'lottie-react'
 import dynamic from 'next/dynamic';
-import cash from '../../public/‏‏assets/animation/cash'
+import cash from '../../../../public/‏‏assets/animation/cash'
 const Lottie = dynamic(() => import('lottie-react'), { ssr: false });
 
 const Hero = () => {
