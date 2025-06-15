@@ -1,0 +1,18 @@
+# 💻 مجلدات بيئة التطوير
+node_modules/
+.next/
+build/
+uploads/
+
+# 🔐 ملفات سرية
+.env
+secret.txt
+
+# ⚠️ أنواع ملفات كبيرة وغير ضرورية
+*.mp4
+*.mov
+*.zip
+*.log
+
+# 🧹 ملفات النظام
+.DS_Store
