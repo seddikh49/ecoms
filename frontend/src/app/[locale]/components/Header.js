@@ -2,7 +2,7 @@
 
 import { useTranslations, useLocale } from 'next-intl';
 
-import { useTranslations } from 'next-intl';
+
 
 
 import Link from 'next/link';
