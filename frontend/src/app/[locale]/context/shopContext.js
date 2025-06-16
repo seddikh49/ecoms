@@ -20,7 +20,7 @@ export const ShopProvider = ({ children, initialProducts }) => {
   const [products, setProducts] = useState(initialProducts || []);
 
 
-  console.log(products)
+ 
 
   const [sortValue, setSortValue] = useState('');
   const [search, setSearch] = useState();

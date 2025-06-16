@@ -5,14 +5,10 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-<<<<<<< HEAD
+
   
       <>{children}</>
    
-=======
-    <html lang="en">
-      <body>{children}</body>
-    </html>
->>>>>>> 2f49f236105de22d670dc21916f036747d7ddaf2
-  )
+)
+
 }

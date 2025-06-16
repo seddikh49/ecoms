@@ -2,6 +2,7 @@
 
 import { useTranslations, useLocale } from 'next-intl';
 
+import { MdLanguage } from "react-icons/md";
 
 
 
@@ -18,7 +19,7 @@ export default function Header() {
   const router = useRouter();
   const locale = useLocale(); // يعيد: "ar", "en", ...
   const [language, setLanguage] = useState(locale);
-
+  
   const [menuOpen, setMenuOpen] = useState(false);
   const [isSticky, setIsSticky] = useState(false);
 
@@ -39,8 +40,8 @@ export default function Header() {
   ];
 
   const changeLanguage = (e) => {
-    console.log(language)
     const newLocale = e.target.value;
+    if (!newLocale) return
     const segments = pathname.split('/');
     segments[1] = newLocale;
     router.replace(segments.join('/'));
@@ -89,16 +90,14 @@ export default function Header() {
         </nav>
 
         {/* أيقونة البحث + القائمة للجوال */}
-        <div className=" xl:w-80 flex items-center gap-2 space-x-4  space-x-reverse">
+        <div className="flex items-center gap-2 space-x-4   space-x-reverse">
           {/* مكان الأيقونة محفوظ دائمًا */}
-          <select onChange={(e) => changeLanguage(e)} defaultValue={language}>
-            <option value='ar' key='ar'>العربية </option>
-            <option value='an' key='an'>الانجليزية </option>
-          </select>
-          <div className=" flex justify-end text-gray-600 ">
-            {pathname === 'ar/collection' || 'en/collection' && (
+
+          <div className=" flex justify-end text-gray-600 0 ">
+            {pathname.split('/')[2] === 'collection' && (
 
               <div className="relative max-w-md xl:w-50  h-10 md:w-44 sm:w-44 xm:w-24 lg:w-64 ">
+
                 <input
                   onChange={(e) => setSearch(e.target.value)}
                   type="text"
@@ -110,8 +109,24 @@ export default function Header() {
 
 
             )}
-          </div>
 
+          </div>
+           <div className='flex items-center rounded-2xl  p-1 justify-between'>
+             <MdLanguage size={24} />
+             <select className=' ' onChange={(e) => changeLanguage(e)} defaultValue={language}>
+            <option value='' key='lang'> اختر اللغة</option>
+            <option value='ar' key='ar'>العربية </option>
+            <option value='an' key='an'>الانجليزية </option>
+          </select>
+           </div>
+          {/* <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+            <MdLanguage size={24} />
+            <select onChange={(e) => changeLanguage(e.target.value)} defaultValue={language}>
+              <option value=''>اختر اللغة</option>
+              <option value='ar'>العربية</option>
+              <option value='an'>الإنجليزية</option>
+            </select>
+          </div> */}
           {/* زر القائمة للموبايل */}
           <button
             onClick={() => setMenuOpen(!menuOpen)}

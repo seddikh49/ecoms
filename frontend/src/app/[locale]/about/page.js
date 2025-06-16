@@ -2,11 +2,10 @@
 import dynamic from 'next/dynamic';
 
 import React from 'react'
-<<<<<<< HEAD
+
 import about from '../../../../public/‏‏assets/animation/about'
-=======
-import about from '../../../public/‏‏assets/animation/about'
->>>>>>> 2f49f236105de22d670dc21916f036747d7ddaf2
+
+
 import TextContent from '../components/TextContent'
 const Lottie = dynamic(() => import('lottie-react'), { ssr: false });
 
