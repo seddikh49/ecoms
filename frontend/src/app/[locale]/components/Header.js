@@ -67,11 +67,11 @@ export default function Header() {
   // fixed w-[90%] z-10 backdrop-blur-md top-0 left-0 
 
   return (
-    <header className={` shadow-md py-5 px-5   backdrop-blur-3xl transition-all duration-500 ease-in-out  ${isSticky ? "fixed z-50 top-0 w-full lg:px-15 xl:px-25 left-0 " : ''} `}>
+    <header className={` shadow-md py-5 px-5 bg-white/80  backdrop-blur-[50px] transition-all duration-500 ease-in-out  ${isSticky ? "fixed z-50 top-0 w-full lg:px-15 xl:px-25 left-0 " : ''} `}>
       <div className="w-full mx-auto flex items-center justify-between">
 
         {/* الشعار */}
-        <div className="xl:text-4xl lg:text-4xl md:text-3xl sm:text-2xl  xm:text-2xl font-extrabold tracking-widest">
+        <div className="xl:text-4xl lg:text-3xl md:text-3xl sm:text-2xl  xm:text-2xl font-extrabold tracking-widest">
           KAMSED<span className='text-orange-500'>.</span>
         </div>
 
@@ -81,7 +81,7 @@ export default function Header() {
             <Link
               key={t(`${link}.href`)}
               href={t(`${link}.href`)}
-              className={`font-bold text-lg transition hover:text-orange-500 ${`/${pathname.split('/')[pathname.split('/').length - 1]}` === t(`${link}.href`) ? 'text-orange-500' : 'text-gray-600'
+              className={`font-bold xl:text-lg lg:text-sm transition hover:text-orange-500 ${`/${pathname.split('/')[pathname.split('/').length - 1]}` === t(`${link}.href`) ? 'text-orange-500' : 'text-gray-600'
                 }`}
             >
               {t(`${link}.label`)}
@@ -90,13 +90,13 @@ export default function Header() {
         </nav>
 
         {/* أيقونة البحث + القائمة للجوال */}
-        <div className="flex items-center gap-2 space-x-4   space-x-reverse">
+        <div className="flex items-center gap-2 space-x-4 space-x-reverse">
           {/* مكان الأيقونة محفوظ دائمًا */}
 
-          <div className=" flex justify-end text-gray-600 0 ">
-            {pathname.split('/')[2] === 'collection' && (
+          <div className=" xl:flex lg:flex md:flex justify-end text-gray-600 xm:hidden sm:flex ">
+            {pathname.split('/')[2] === 'collection' ? (
 
-              <div className="relative max-w-md xl:w-50  h-10 md:w-44 sm:w-44 xm:w-24 lg:w-64 ">
+              <div className="relative max-w-md xl:w-70  h-10 md:w-44 sm:w-44 xm:w-24 lg:w-40 ">
 
                 <input
                   onChange={(e) => setSearch(e.target.value)}
@@ -108,11 +108,11 @@ export default function Header() {
               </div>
 
 
-            )}
+            ):<div className='xl:w-50  h-10 md:w-44 sm:w-44 xm:w-24 lg:w-64'></div>}
 
           </div>
            <div className='flex items-center rounded-2xl  p-1 justify-between'>
-             <MdLanguage size={24} />
+             <MdLanguage className='xl:text-2xl lg:text-xl sm:text-xl  xm:text-md' />
              <select className=' ' onChange={(e) => changeLanguage(e)} defaultValue={language}>
             <option value='' key='lang'> اختر اللغة</option>
             <option value='ar' key='ar'>العربية </option>

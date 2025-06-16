@@ -181,7 +181,7 @@ const ProductDetails = ({ product }) => {
                         </div>
 
                         {/* البلدية والولاية */}
-                        <div className="flex flex-col md:flex-row gap-5">
+                        <div className="flex flex-col md:flex-row sm:flex-col-reverse xm:flex-col-reverse gap-5">
                             <select
                                 onChange={(e) => setCommune(e.target.value)}
                                 value={commune}

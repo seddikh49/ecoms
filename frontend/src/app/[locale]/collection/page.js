@@ -18,12 +18,15 @@ export default async function Collection() {
 
     return (
         <>
-            <div className="mt-10 flex xl:flex-row lg:flex-row sm:flex-col  xm:flex-col-reverse gap-5" dir="rtl">
-                <div className="xl:w-64 lg:w-48 sm:w-full xm:w-full px-3 flex" dir="rtl">
-                    <HandleCategories />
+            <div className="mt-10 flex xl:flex-row lg:flex-row sm:flex-col  xm:flex-col gap-5" dir="rtl">
+
+                <div className="xl:w-64 lg:w-48 sm:w-full xm:w-full px-3 flex  " dir="rtl">
+
+                    <HandleCategories  />
                 </div>
                 <div dir="rtl" className="w-full p-5">
                     <div className="flex xm:items-start p-3  justify-between items-center px-10 sm:flex-col-reverse xm:flex-col-reverse xl:flex-row lg:flex-row md:flex-row gap-4" dir="rtl">
+                       
                         <div className="w-60">
                             <SortSelect />
                         </div>
