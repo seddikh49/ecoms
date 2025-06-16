@@ -22,8 +22,7 @@ export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [isSticky, setIsSticky] = useState(false);
 
-const t = useTranslations('links')
-const navKeys = ['home', 'collection', 'about', 'contact'];
+
 
   const t = useTranslations('links')
   const navLinks = ['home', 'collection', 'about', 'contact'];
