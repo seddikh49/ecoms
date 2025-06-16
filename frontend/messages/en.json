@@ -1,0 +1,21 @@
+{
+  "links": {
+    "home": {
+      "label": "Home",
+      "href": "/"
+    },
+    "collection": {
+      "label": "Products",
+      "href": "/collection"
+    },
+    "about": {
+      "label": "About Us",
+      "href": "/about"
+    },
+    "contact": {
+      "label": "Contact Us",
+      "href": "/contact"
+    }
+  }
+}
+

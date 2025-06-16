@@ -4,8 +4,13 @@ import { MdAccountCircle } from "react-icons/md";
 import { FaPhone } from "react-icons/fa6";
 import { FaCartShopping } from "react-icons/fa6";
 import { FaWhatsapp } from "react-icons/fa";
+<<<<<<< HEAD
 import { communes } from '../../../../public/‏‏assets/frontend_assets/communes'
 import { wilayas } from '../../../../public/‏‏assets/frontend_assets/wilayas'
+=======
+import { communes } from '../../../public/‏‏assets/frontend_assets/communes'
+import { wilayas } from '../../../public/‏‏assets/frontend_assets/wilayas'
+>>>>>>> 2f49f236105de22d670dc21916f036747d7ddaf2
 import { ClipLoader } from "react-spinners";
 import { toast } from 'react-toastify'
 import { useRouter } from 'next/navigation'

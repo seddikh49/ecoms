@@ -1,6 +1,10 @@
 
 import axios from "axios";
+<<<<<<< HEAD
 import ProductDetails from "../../components/ProductDetails";
+=======
+import ProductDetails from "@/src/app/components/ProductDetails";
+>>>>>>> 2f49f236105de22d670dc21916f036747d7ddaf2
 import { fetchProducts } from "@/lib/fetchProducts";
 
 

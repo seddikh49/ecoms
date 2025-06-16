@@ -18,6 +18,10 @@ export const ShopProvider = ({ children, initialProducts }) => {
   const delivery_fee = 10
 
   const [products, setProducts] = useState(initialProducts || []);
+<<<<<<< HEAD
+=======
+  console.log(products)
+>>>>>>> 2f49f236105de22d670dc21916f036747d7ddaf2
   const [sortValue, setSortValue] = useState('');
   const [search, setSearch] = useState();
   const router = useRouter();
