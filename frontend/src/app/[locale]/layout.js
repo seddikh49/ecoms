@@ -1,6 +1,6 @@
 import { ShopProvider } from './context/shopContext';
 import { Cairo } from 'next/font/google';
-import { fetchProducts } from '@/lib/fetchProducts';
+import {fetchProducts} from '../../../lib/fetchProducts'
 import { ToastContainer, toast } from 'react-toastify';
 import {NextIntlClientProvider, hasLocale} from 'next-intl';
 import {notFound} from 'next/navigation';

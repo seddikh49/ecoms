@@ -1,6 +1,6 @@
 "use client"
 import dynamic from 'next/dynamic';
-
+import { Button } from '@/@/components/ui/button';
 import React from 'react'
 
 import about from '../../../../public/‏‏assets/animation/about'
@@ -17,6 +17,7 @@ const About = () => {
 
   return (
     <div className='mt-10'>
+      <Button>Click me</Button>
 
       <div className='text-center text-2xl'>
         <TextContent text1={'من نحن'} />

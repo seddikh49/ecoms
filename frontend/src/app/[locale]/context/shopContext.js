@@ -4,7 +4,7 @@ import React, { createContext, useContext, useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { wilayas } from "../../../../public/‏‏assets/frontend_assets/wilayas";
 import { communes } from "../../../../public/‏‏assets/frontend_assets/communes";
-import { assets } from "@/public/‏‏assets/frontend_assets/assets";
+// import { assets } from "@/public/‏‏assets/frontend_assets/assets";
 
 
 

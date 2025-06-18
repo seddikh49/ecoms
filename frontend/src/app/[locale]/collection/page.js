@@ -3,7 +3,7 @@ import Products from "../components/Products"
 import TextContent from "../components/TextContent"
 import SortSelect from "../components/SortProducts";
 import { GoChevronDown } from "react-icons/go";
-import { fetchProducts } from "@/lib/fetchProducts";
+
 
 import axios from "axios";
 import HandleCategories from "../components/HandleCategories";
