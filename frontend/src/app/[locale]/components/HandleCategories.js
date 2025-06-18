@@ -44,7 +44,7 @@ const HandleCategories = () => {
 
 
     return (
-        <div className='sm:w-full h-max  mt-5 md:w-full w-full lg:w-52 flex flex-col gap-y-4 rounded-xl border border-gray-200 shadow-sm  p-4' dir='rtl' >
+        <div className='sm:w-full h-max  mt-5 md:w-full w-full lg:w-52 flex flex-col gap-y-4 rounded-xl border sticky top-21  border-gray-200 shadow-sm  p-4' dir='rtl' >
             <h1
                 onClick={showCategoriesHandle}
                 className='font-cairo font-bold text-gray-700 text-xl flex items-center justify-between cursor-pointer'
@@ -95,32 +95,6 @@ const HandleCategories = () => {
                 </div>
             </div>
         </div>
-
-        // <div className='sm:w-full mt-5  md:w-full w-full lg:w-52 flex flex-col gap-y-2 ' dir='rtl'>
-        //     <h1 onClick={showCategoriesHandle} className='font-cairo  font-bold text-gray-600 text-2xl xl:mb-8 lg:mb-8 flex items-center gap-1  '>الفلترة
-        //         <span className='xl:hidden lg:hidden z-2 '><GoChevronDown className={`${icon ? 'rotate-0' : 'rotate-180'} ${rotateIcon ? 'inline-block' : 'hidden'}  transition-all duration-500`} />
-        //         </span>
-        //     </h1>
-        //     <div className={`border w-full   border-gray-300 flex flex-col gap-5 p-5 xl:flex  lg:flex ${showCategories}  xm:${showCategories} md:${showCategories}`}>
-        //         <h1 className=' text-gray-800 text-xl font-cairo font-bold '>الفئة</h1>
-        //         <div className='flex flex-col gap-2   '>
-        //             <div className='flex gap-2'>
-        //                 <input className='' onChange={filterCategory} type="checkbox" value={'Men'} />
-        //                 <label className='font-poppins text-gray-500' htmlFor="">Men</label>
-        //             </div>
-        //             <div className='flex gap-2'>
-        //                 <input onChange={filterCategory} type="checkbox" value={'Women'} />
-        //                 <label className='font-poppins text-gray-500' htmlFor="">Women</label>
-        //             </div>
-        //             <div className='flex gap-2'>
-        //                 <input onChange={filterCategory} type="checkbox" value={'Kids'} />
-        //                 <label className='font-poppins text-gray-500' htmlFor="">Kids</label>
-        //             </div>
-        //         </div>
-
-        //     </div>
-
-        // </div>
 
 
     )

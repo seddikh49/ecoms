@@ -8,7 +8,7 @@ import { useEffect } from "react";
 
 
 export default function Products() {
-  const {allProducts } = useShop();
+  const {allProducts,currency } = useShop();
  
 
 
@@ -34,11 +34,13 @@ export default function Products() {
             </div>
 
             <div className="mt-4 text-center">
-              <h1 className="text-md font-semibold text-gray-800 whitespace-nowrap">{product.name.slice(0, 20)}</h1>
-              <p className="text-xl text-indigo-600 font-bold mt-2">{product.price} ريال</p>
+              <div className="flex justify-between px-2 items-center">
+                <h1 className="text-md font-semibold text-gray-800 whitespace-nowrap">{product.name.slice(0, 20)}</h1>
+              <p className="text-xl text-indigo-600 font-bold mt-2">{product.price} {currency}</p>
+              </div>
 
               <Link href={`collection/${product.id}`} className="block">
-                <button className="mt-4 w-full bg-indigo-600 text-white py-2 px-4 rounded-xl hover:bg-indigo-700 transition duration-300">
+                <button className="mt-4 w-full font-bold bg-indigo-600 text-white py-2 px-4 rounded-t-md hover:bg-indigo-700 transition duration-300">
                   شراء المنتج
                 </button>
               </Link>

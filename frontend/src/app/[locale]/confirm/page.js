@@ -7,7 +7,7 @@ import dynamic from 'next/dynamic';
 import axios from 'axios';
 import { FaCartShopping } from "react-icons/fa6";
 
-import money from '../../public/‏‏assets/animation/money'
+import money from '../../../../public/‏‏assets/animation/money'
 import { useShop } from '../context/shopContext'
 import Link from 'next/link';
 const Lottie = dynamic(() => import('lottie-react'), { ssr: false });

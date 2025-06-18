@@ -68,7 +68,7 @@ export default function Header() {
 
   return (
     <header className={` shadow-md py-5 px-5 bg-white/80  backdrop-blur-[50px] transition-all duration-500 ease-in-out  ${isSticky ? "fixed z-50 top-0 w-full lg:px-15 xl:px-25 left-0 " : ''} `}>
-      <div className="w-full mx-auto flex items-center justify-between">
+      <div className="w-full mx-auto flex items-center justify-between ">
 
         {/* الشعار */}
         <div className="xl:text-4xl lg:text-3xl md:text-3xl sm:text-2xl  xm:text-2xl font-extrabold tracking-widest">
@@ -76,7 +76,7 @@ export default function Header() {
         </div>
 
         {/* روابط التنقل */}
-        <nav className={`xl:flex md:hidden lg:flex xm:hidden sm:hidden gap-5 `}     >
+        <nav className={`xl:flex md:hidden lg:flex xm:hidden sm:hidden gap-5`}     >
           {navLinks.map((link) => (
             <Link
               key={t(`${link}.href`)}
@@ -90,13 +90,13 @@ export default function Header() {
         </nav>
 
         {/* أيقونة البحث + القائمة للجوال */}
-        <div className="flex items-center gap-2 space-x-4 space-x-reverse">
+        <div className="flex items-center gap-2 space-x-4 space-x-reverse ">
           {/* مكان الأيقونة محفوظ دائمًا */}
 
-          <div className=" xl:flex lg:flex md:flex justify-end text-gray-600 xm:hidden sm:flex ">
+          <div className=" xl:flex lg:flex md:flex justify-end text-gray-600 xm:hidden sm:flex  ">
             {pathname.split('/')[2] === 'collection' ? (
 
-              <div className="relative max-w-md xl:w-70  h-10 md:w-44 sm:w-44 xm:w-24 lg:w-40 ">
+              <div className="relative max-w-md xl:w-70  h-10 md:w-44 sm:w-44 xm:w-24 lg:w-32">
 
                 <input
                   onChange={(e) => setSearch(e.target.value)}
@@ -108,7 +108,7 @@ export default function Header() {
               </div>
 
 
-            ):<div className='xl:w-50  h-10 md:w-44 sm:w-44 xm:w-24 lg:w-64'></div>}
+            ):<div className='xl:w-70  h-10 md:w-44 sm:w-44 xm:w-24 lg:w-32 '></div>}
 
           </div>
            <div className='flex items-center rounded-2xl  p-1 justify-between'>
@@ -133,7 +133,7 @@ export default function Header() {
             className="xl;hidden lg:hidden  text-gray-800"
             aria-label="Open menu"
           >
-            {menuOpen ? <X size={26} /> : <Menu size={35} />}
+            {menuOpen ? <X size={35} /> : <Menu size={35} />}
           </button>
         </div>
       </div>
@@ -141,7 +141,7 @@ export default function Header() {
       {/* قائمة جانبية للجوال */}
       {menuOpen && (
         <div className="md:hidden mt-4 flex flex-col items-end space-y-4 pr-4">
-          {navItems.map((item) => (
+          {/* {navItems.map((item) => (
             <Link
               key={item.href}
               href={item.href}
@@ -150,6 +150,16 @@ export default function Header() {
                 }`}
             >
               {item.label}
+            </Link>
+          ))} */}
+           {navLinks.map((link) => (
+            <Link
+              key={t(`${link}.href`)}
+              href={t(`${link}.href`)}
+              className={`font-bold xl:text-lg lg:text-sm transition hover:text-orange-500 ${`/${pathname.split('/')[pathname.split('/').length - 1]}` === t(`${link}.href`) ? 'text-orange-500' : 'text-gray-600'
+                }`}
+            >
+              {t(`${link}.label`)}
             </Link>
           ))}
         </div>
