@@ -27,19 +27,21 @@ const App = () => {
 
 
   const verifyToken = async () => {
-    
+
 
     if (!token) {
       setIsAdmin(false)
       setloading(false)
       return
     } else {
-     
+
       try {
         const response = await axios.post(`${backEndUrl}/api/user/verify-token`, {}, {
-          headers: { token: token }
+          headers: {
+            Authorization: `Bearer ${token}`
+          }
         })
-        
+
         console.log("✅ Response received:", response.data.role);
         if (response.data.role === "admin") {
           setIsAdmin(true)

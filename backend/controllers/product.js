@@ -3,25 +3,26 @@ import Product from '../models/products.js';
 
 
 
-
 const listProducts = async (req, res) => {
-    try {
-        const products = await Product.findAll({});
-        res.status(200).json({ products: products, msg: true });
-    } catch (error) {
-        res.status(500).json({ error: error, msg: false });
-    }
-}
+  try {
+    console.log(req.headers)
+   
+    const products = await Product.findAll({});
+    res.status(200).json({ products, msg: true });
+  } catch (error) {
+    res.status(500).json({ error: error.message, msg: false });
+  }
+};
 
 const addProduct = async (req, res) => {
+  console.log(req.headers)
     const images = [];
-    console.log("message")
-     console.log(req.files)
+
     if (req.files.image1) images.push(req.files.image1[0].path);
     if (req.files.image2) images.push(req.files.image2[0].path);
     if (req.files.image3) images.push(req.files.image3[0].path);
     if (req.files.image4) images.push(req.files.image4[0].path);
-    
+
 
     try {
         const {
@@ -31,14 +32,14 @@ const addProduct = async (req, res) => {
             category,
             date,
         } = req.body;
-     
+
 
         const newProduct = await Product.create({
             name,
             description,
             price: Number(price),
             category,
-            image:images, // ← أضفها هنا أيضاً
+            image: images, // ← أضفها هنا أيضاً
             date: new Date()
         });
         res.status(200).json({ success: true, newProduct, msg: "product added successfully" });
@@ -56,7 +57,7 @@ const singleProduct = async (req, res) => {
         const { productId } = req.body;
         const singleProduct = await productModel.findByPk(productId);
         res.json({
-            
+
             msg: "this product deleted succesfully",
             product: singleProduct,
         });
@@ -67,21 +68,21 @@ const singleProduct = async (req, res) => {
 
 
 const removeProducts = async (req, res) => {
-  const { id } = req.body;
+    const { id } = req.body;
 
-  try {
-    const deletedCount = await Product.destroy({
-      where: { id }
-    });
+    try {
+        const deletedCount = await Product.destroy({
+            where: { id }
+        });
 
-    if (deletedCount === 0) {
-      return res.status(404).json({ message: 'Product not found' });
+        if (deletedCount === 0) {
+            return res.status(404).json({ message: 'Product not found' });
+        }
+
+        return res.status(200).json({ success: true, message: 'Product deleted successfully' });
+    } catch (error) {
+        return res.status(500).json({ message: 'Server error', error: error.message });
     }
-
-    return res.status(200).json({success : true, message: 'Product deleted successfully' });
-  } catch (error) {
-    return res.status(500).json({ message: 'Server error', error: error.message });
-  }
 };
 
 

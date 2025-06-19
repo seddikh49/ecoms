@@ -14,11 +14,15 @@ const List = ({ token }) => {
   const [list, setList] = useState([]);
   const fetchList = async () => {
     try {
-      const response = await axios.get(`${backEndUrl}/api/product/list`)
+       const response = await axios.get(`${backEndUrl}/api/product/admin-list`, {
+      headers: {
+        Authorization: `Bearer ${token}`
+      }
+    });
       if (response.data.msg) {
         setList(response.data.products)
       }
-      console.log(list)
+      
 
     } catch (error) {
       toast.error(response.data.msg)
@@ -32,7 +36,11 @@ const List = ({ token }) => {
   const removeProduct = async (id) => {
     
     try {
-      const response = await axios.post(`${backEndUrl}/api/product/remove`, { id }, { headers: { token } })
+      const response = await axios.post(`${backEndUrl}/api/product/remove`, { id }, {    
+        headers: {
+          Authorization: `Bearer ${token}`
+        } })
+        console.log(response)
       
       if (response.data.success) {
         toast.success(response.data.msg)

@@ -7,7 +7,36 @@ import dotenv from 'dotenv';
 const app = express();
 const port = 3000;
 import cors from 'cors'
-app.use(cors());
+// app.use(cors({
+//    origin: ['https://your-frontend.com'], // فقط هذه الدومينات مسموحة
+//   methods: ['GET', 'POST'],
+//   credentials: true
+// }));
+
+
+const allowedOrigins = [
+  'https://republic.com',
+  'http://localhost:3002',
+   'http://localhost:5000'
+];
+
+const corsOptions = {
+  origin: function (origin, callback) {
+    // السماح بدون Origin في بعض الحالات مثل Postman أو Curl
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  allowedHeaders: ["Content-Type", "Authorization"],
+  credentials: true,
+  maxAge: 600
+};
+
+app.use(cors(corsOptions));
+
 
 dotenv.config();
 
@@ -23,21 +52,7 @@ app.get('/', (req, res) => {
 
 
 
-// app.listen(port, () => {
-//   console.log(`✅ Server running on http://localhost:${port}`);
-// });
 
-
-
-// connect().then(() => {
-//   sequelize.sync()
-//     .then(() => {
-//       console.log("✅ Database synced");
-//     })
-//     .catch((err) => {
-//       console.error("❌ Error syncing database:", err);
-//     });
-// });
 const startServer = async () => {
   try {
     await connect(); // الاتصال بقاعدة البيانات

@@ -2,7 +2,7 @@
 import axios from "axios";
 import ProductDetails from "../../components/ProductDetails";
 
-import { fetchProducts } from "@/lib/fetchProducts";
+import { fetchProducts } from "../../../../../lib/fetchProducts";
 
 
 export default async function Product( {params} ) {
