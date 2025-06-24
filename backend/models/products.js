@@ -3,6 +3,11 @@ import { sequelize } from '../postgres/postgres.js';
 
 
 const Product = sequelize.define('Product', {
+   id: {
+    type: DataTypes.UUID,
+    defaultValue: DataTypes.UUIDV4, // لإنشاء UUID تلقائي عند إدخال بيانات جديدة
+    primaryKey: true
+  },
   name: {
     type: DataTypes.STRING,
     allowNull: false,

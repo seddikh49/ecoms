@@ -1,8 +1,15 @@
 import axios from 'axios';
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { backEndUrl } from '../App'
 import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
+import { CiEdit } from "react-icons/ci";
+import { MdDelete } from "react-icons/md";
+import Swal from 'sweetalert2';
+import { Link } from 'react-router-dom';
+import { OrderContext } from '../context/orderContext';
+
+
 
 
 
@@ -11,18 +18,18 @@ import { useNavigate } from 'react-router-dom';
 const List = ({ token }) => {
 
 
-  const [list, setList] = useState([]);
+  const {list, setList} = useContext(OrderContext)
   const fetchList = async () => {
     try {
-       const response = await axios.get(`${backEndUrl}/api/product/admin-list`, {
-      headers: {
-        Authorization: `Bearer ${token}`
-      }
-    });
+      const response = await axios.get(`${backEndUrl}/api/product/admin-list`, {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      });
       if (response.data.msg) {
         setList(response.data.products)
       }
-      
+
 
     } catch (error) {
       toast.error(response.data.msg)
@@ -34,22 +41,35 @@ const List = ({ token }) => {
   }, []);
 
   const removeProduct = async (id) => {
-    
-    try {
-      const response = await axios.post(`${backEndUrl}/api/product/remove`, { id }, {    
-        headers: {
-          Authorization: `Bearer ${token}`
-        } })
-        console.log(response)
-      
-      if (response.data.success) {
-        toast.success(response.data.msg)
-        fetchList()
-      }
+    Swal.fire({
+      title: 'تحذير',
+      text: 'هل تريد حذف هذا المنتج ؟',
+      icon: 'warning',
+      confirmButtonText: 'نعم',
+      showCancelButton: true,
+      cancelButtonText: 'إلغاء',
 
-    } catch (error) {
-      console.log(error)
-    }
+    }).then(async (result) => {
+      if (result.isConfirmed) {
+        try {
+          const response = await axios.post(`${backEndUrl}/api/product/remove`, { id }, {
+            headers: {
+              Authorization: `Bearer ${token}`
+            }
+          })
+          console.log(response)
+
+          if (response.data.success) {
+            toast.success(response.data.msg)
+            fetchList()
+          }
+
+        } catch (error) {
+          console.log(error)
+        }
+      }
+    })
+
   }
 
 
@@ -71,7 +91,7 @@ const List = ({ token }) => {
       </div>
 
       {/* المنتجات */}
-      {list.map((product, index) => (
+      {list?.map((product, index) => (
         <div
           dir='rtl'
           key={index}
@@ -87,10 +107,16 @@ const List = ({ token }) => {
           <p className='text-right text-xl font-medium text-gray-800  md:hidden xl:block lg:block sm:hidden xm:hidden'>{product.price}$</p>
           <p className='text-right text-xl font-medium text-gray-800  md:hidden xl:block lg:block sm:hidden xm:hidden'>{product.category}</p>
           <p className='text-right text-xl font-medium text-gray-800  md:hidden xl:block lg:block sm:hidden xm:hidden'>{product.description.slice(0, 7)}...</p>
-          <button
+          <div className='flex justify-center items-center gap-5'>
+            <Link to={`/edit/${product.id}`} ><CiEdit className='text-4xl text-green-600 hover:text-green-300' />
+            </Link>
+            
+            {/* <button
             onClick={() => removeProduct(product.id)}
-            className='text-white bg-red-500 hover:bg-red-600 mx-auto  transition-all duration-300 ease-in-out transform hover:scale-105 xm:w-16 sm:w-16 xl:w-25 lg:w-25  md:w-20 xl:text-[16px] lg:text-[16px] md:text-[12px] xm:text-[10px]  sm:text-[10px] px-2 py-1 rounded-md font-bold'
-          > حذف المنتج</button>
+            className='text-white bg-red-500 hover:bg-red-600 mx-auto  transition-all duration-300 ease-in-out whitespace-nowrap transform hover:scale-105 xm:w-16 sm:w-16 xl:w-25 lg:w-25  md:w-20 xl:text-[16px] lg:text-[16px] md:text-[12px] xm:text-[10px]  sm:text-[10px] px-2 py-1 rounded-md font-bold'
+          > حذف المنتج</button> */}
+            <MdDelete onClick={() => removeProduct(product.id)} className='text-4xl text-red-500 hover:text-red-300' />
+          </div>
         </div>
       ))}
     </div>

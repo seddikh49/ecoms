@@ -9,10 +9,11 @@ import Login from './components/Login'
 import { ToastContainer } from 'react-toastify';
 import Orderdetail from './pages/Orderdetail'
 import axios from 'axios'
-import { OrderContext } from './context/orderContext'
+import { OrderContext } from './context/OrderContext'
 import Home from './pages/Home'
 import Lottie from 'lottie-react';
 import loadingAnimation from './assets/loading.json';
+import Edit from './pages/edit'
 
 
 
@@ -42,7 +43,6 @@ const App = () => {
           }
         })
 
-        console.log("✅ Response received:", response.data.role);
         if (response.data.role === "admin") {
           setIsAdmin(true)
           // setloading(false)
@@ -87,6 +87,7 @@ const App = () => {
                 <Routes>
                   <Route path='/' element={<Home />} />
                   <Route path='/add' element={<Add token={token} />} />
+                  <Route path='/edit/:id' element={<Edit />} />
                   <Route path='/orders' element={<Orders />} />
                   <Route path='/list' element={<List token={token} />} />
                   <Route path='/orderdetail/:name' element={<Orderdetail token={token} />} />

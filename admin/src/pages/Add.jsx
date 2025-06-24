@@ -3,6 +3,8 @@ import { assets } from '../assets/assets'
 import axios from 'axios';
 import { backEndUrl } from '../App'
 import { toast } from 'react-toastify';
+import { ClipLoader } from "react-spinners";
+
 
 
 
@@ -14,29 +16,37 @@ const Add = ({ token }) => {
   const [image3, setImage3] = useState(false);
   const [image4, setImage4] = useState(false);
 
-
+ const [loading, setLoading] = useState(false);
   const [name, setName] = useState("");
   const [description, setdescription] = useState();
   const [price, setprice] = useState('');
   const [category, setCategory] = useState("Men");
+const override = {
+  // display: "block",
+  // margin: "0 auto",
+  borderColor: "red",
+};
+
 
 
   const handleSubmit = async (e) => {
     e.preventDefault()
+    setLoading(true)
     try {
       const dataForm = new FormData()
-
+    
       dataForm.append("name", name)
       dataForm.append("description", description)
       dataForm.append("price", price)
       dataForm.append("category", category)
 
-
+    
 
       image1 && dataForm.append("image1", image1)
       image2 && dataForm.append("image2", image2)
       image3 && dataForm.append("image3", image3)
       image4 && dataForm.append("image4", image4)
+      
 
 
       const response = await axios.post(`${backEndUrl}/api/product/add`, dataForm, {
@@ -45,6 +55,7 @@ const Add = ({ token }) => {
         }
       });
       if (response.data.success) {
+        setLoading(false)
         toast.success('product added successfully')
         setName('')
         setdescription('')
@@ -54,6 +65,7 @@ const Add = ({ token }) => {
         setImage4(false)
         setprice('')
       } else {
+        console.log(response)
         toast.error(response.data.msg)
       }
 
@@ -65,10 +77,11 @@ const Add = ({ token }) => {
 
 
 
-
-
   return (
+    <div className='w-full bg-gray-100 p-10'>
+      <div className='p-5 bg-white rounded-xl shadow-xl'>
     <div dir='rtl' className='p-10 w-full'>
+
       <form onSubmit={handleSubmit} className='flex flex-col items-start gap-3' action="">
         <div className='flex flex-col gap-2'>
           <h1 className='text-xl font-bold'>صور المنتج</h1>
@@ -118,11 +131,15 @@ const Add = ({ token }) => {
         </div>
         <div >
           <div className='mt-3 mb-5  gap-3'>
-            <button className='bg-black text-white px-10 py-2 cursor-pointer font-bold'>اضافة المنتج</button>
+            <button disabled={loading}  className='bg-black cursor- w-44 max-w-44 flex justify-center items-center text-white px-10 h-10 max-h-10 cursor-pointer font-bold'>{loading ? <ClipLoader  color="#fff" className='' size={30} />  :"اضافة المنتج"  } </button>
+  
           </div>
         </div>
       </form>
     </div>
+    </div>
+    </div>
+    
   )
 }
 

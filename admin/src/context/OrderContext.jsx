@@ -11,14 +11,16 @@ const OrderContextProvider = ({ children }) => {
   const [copiedOrders, setCopiedOrders] = useState([]);
   const [notofications, setnotofications] = useState();
   const [status, setStatus] = useState("جديد");
-    const [isAdmin, setIsAdmin] = useState();
+  const [isAdmin, setIsAdmin] = useState();
+  const [list, setList] = useState([]);
+
 
 
   const fetchOrders = async () => {
-    
+
     try {
       const response = await axios.get(`${backEndUrl}/api/order/list`)
- 
+
       if (response.data.success) {
         setorders(response.data.orders)
         setCopiedOrders(response.data.orders)
@@ -47,10 +49,12 @@ const OrderContextProvider = ({ children }) => {
     setStatusOrder,
     fetchOrders,
     backEndUrl,
-    status, 
+    status,
     setStatus,
-    isAdmin, 
-    setIsAdmin
+    isAdmin,
+    setIsAdmin,
+    list,
+    setList
   }
 
 

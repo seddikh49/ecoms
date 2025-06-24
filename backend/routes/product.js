@@ -1,5 +1,5 @@
 import express from 'express'
-import { addProduct, removeProducts, singleProduct, listProducts } from '../controllers/product.js'
+import { addProduct, removeProducts, singleProduct, listProducts,updateProduct } from '../controllers/product.js'
 import upload from '../middlewares/multer.js'
 
 import authAdmin from '../middlewares/admin.js'
@@ -13,19 +13,20 @@ productRouter.post('/add', authAdmin, upload.fields([{ name: 'image1', maxCount:
 
 productRouter.post('/single', authAdmin, singleProduct)
 productRouter.post('/remove', authAdmin, removeProducts)
+productRouter.post('/update-product',upload.fields([{ name: 'image1', maxCount: 1 }, { name: 'image2', maxCount: 1 }, { name: 'image3', maxCount: 1 }, { name: 'image4', maxCount: 1 }]),updateProduct)
 
 
 productRouter.get('/list', async (req, res, next) => {
-    const { origin } = req.headers;
+    // const { origin } = req.headers;
 
-    const allowedOrigins = [
-        'http://localhost:3005',
-        'http://localhost:5000'
-    ];
-    console.log(req.headers)
-    if (!origin || !allowedOrigins.includes(origin)) {
-        return res.status(403).json({ msg: "This origin is not allowed" });
-    }
+    // const allowedOrigins = [
+    //     'http://localhost:3005',
+    //     'http://localhost:5000'
+    // ];
+    // console.log(req.headers)
+    // if (!origin || !allowedOrigins.includes(origin)) {
+    //     return res.status(403).json({ msg: "This origin is not allowed" });
+    // }
     return next();
 }, listProducts)
 productRouter.get('/admin-list', authAdmin, listProducts)
