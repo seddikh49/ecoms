@@ -15,7 +15,7 @@ export default function Products() {
 
   return (
     <>
-    <div className="grid gap-10 mt-10 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 w-full">
+    <div className="grid gap-5 mt-10 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 w-full">
   {allProducts.map((product, index) => (
     <div
       key={index}
@@ -44,7 +44,7 @@ export default function Products() {
         </div>
 
         <Link href={`collection/${product.id}`} className="block">
-          <button className="w-full font-bold bg-indigo-600 text-white py-2 px-4 rounded-lg hover:bg-indigo-700 transition duration-300">
+          <button className="w-full cursor-pointer font-bold bg-indigo-600 text-white py-2 px-4 rounded-lg hover:bg-indigo-700 transition duration-300">
             شراء المنتج
           </button>
         </Link>

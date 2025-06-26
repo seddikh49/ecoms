@@ -3,6 +3,7 @@
 import { useTranslations, useLocale } from 'next-intl';
 
 import { MdLanguage } from "react-icons/md";
+import { motion } from 'framer-motion';
 
 
 
@@ -38,6 +39,12 @@ export default function Header() {
     { label: 'من نحن', href: '/about' },
     { label: 'تواصل معنا', href: '/contact' },
   ];
+
+  console.log(pathname.split('/')[pathname.split('/').length - 1])
+
+  const currentPath = `/${pathname.split('/').slice(2).join('/')}`; // تخطي جزء اللغة
+  console.log("==> " + currentPath)
+
 
   const changeLanguage = (e) => {
     const newLocale = e.target.value;
@@ -76,13 +83,14 @@ export default function Header() {
         </div>
 
         {/* روابط التنقل */}
-        <nav className={`xl:flex md:hidden lg:flex xm:hidden sm:hidden gap-5`}     >
+        <nav className={`xl:flex md:hidden lg:flex xm:hidden sm:hidden gap-5   `}     >
           {navLinks.map((link) => (
             <Link
               key={t(`${link}.href`)}
               href={t(`${link}.href`)}
-              className={`font-bold xl:text-lg lg:text-sm transition hover:text-orange-500 ${`/${pathname.split('/')[pathname.split('/').length - 1]}` === t(`${link}.href`) ? 'text-orange-500' : 'text-gray-600'
-                }`}
+              // className={`font-bold xl:text-lg lg:text-sm transition hover:text-orange-500 ${`/${pathname.split('/')[pathname.split('/').length - 1]}` === t(`${link}.href`) ? 'text-orange-500' :'text-gray-600'
+              //   }`}
+              className={`font-bold xl:text-lg lg:text-sm transition hover:text-orange-500 ${currentPath === t(`${link}.href`) ? "text-orange-500" : "text-gray-600" } `}
             >
               {t(`${link}.label`)}
             </Link>
@@ -90,15 +98,16 @@ export default function Header() {
         </nav>
 
         {/* أيقونة البحث + القائمة للجوال */}
-        <div className="flex items-center gap-2 space-x-4 space-x-reverse ">
+        <div className="flex items-center gap-2 space-x-4 space-x-reverse  ">
           {/* مكان الأيقونة محفوظ دائمًا */}
 
-          <div className=" xl:flex lg:flex md:flex justify-end text-gray-600 xm:hidden sm:flex  ">
+          <div className=" xl:flex lg:flex md:flex justify-end text-gray-600 xm:hidden sm:flex bg-amber-600  ">
             {pathname.split('/')[2] === 'collection' ? (
 
-              <div className="relative max-w-md xl:w-70  h-10 md:w-44 sm:w-44 xm:w-24 lg:w-32">
+              <div className="relative max-w-md xl:w-50  h-10 md:w-44 sm:w-44 xm:w-24 lg:w-32">
 
                 <input
+                 
                   onChange={(e) => setSearch(e.target.value)}
                   type="text"
                   placeholder="ابحث..."
@@ -108,7 +117,7 @@ export default function Header() {
               </div>
 
 
-            ):<div className='xl:w-70  h-10 md:w-44 sm:w-44 xm:w-24 lg:w-32 '></div>}
+            ):<div className={`xl:w-50 h-10 md:w-44 sm:w-44 xm:w-24 lg:w-32 `}></div>}
 
           </div>
            <div className='flex items-center rounded-2xl  p-1 justify-between'>
@@ -119,15 +128,7 @@ export default function Header() {
             <option value='an' key='an'>الانجليزية </option>
           </select>
            </div>
-          {/* <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-            <MdLanguage size={24} />
-            <select onChange={(e) => changeLanguage(e.target.value)} defaultValue={language}>
-              <option value=''>اختر اللغة</option>
-              <option value='ar'>العربية</option>
-              <option value='an'>الإنجليزية</option>
-            </select>
-          </div> */}
-          {/* زر القائمة للموبايل */}
+    
           <button
             onClick={() => setMenuOpen(!menuOpen)}
             className="xl;hidden lg:hidden  text-gray-800"

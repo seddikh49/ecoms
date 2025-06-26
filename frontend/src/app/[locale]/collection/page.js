@@ -1,6 +1,6 @@
 
 import Products from "../components/Products"
-import TextContent from "../components/TextContent"
+import TextContent from "../components/TextContent";
 import SortSelect from "../components/SortProducts";
 import { GoChevronDown } from "react-icons/go";
 
@@ -26,11 +26,11 @@ export default async function Collection() {
                 </div>
                 <div dir="rtl" className="w-full p-5">
                     <div className="flex xm:items-start p-3  justify-between items-center px-10 sm:flex-col-reverse xm:flex-col-reverse xl:flex-row lg:flex-row md:flex-row gap-4" dir="rtl">
-                       
+                        <TextContent text1={'جميع المنتجات'} />
                         <div className="w-60">
                             <SortSelect />
                         </div>
-                        <TextContent text={'جميع المنتجات'} />
+                       
                     </div>
                     <div className="">
                         <Products />
