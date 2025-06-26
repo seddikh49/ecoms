@@ -20,8 +20,7 @@ export default async function Collection() {
         <>
             <div className="mt-10 flex xl:flex-row lg:flex-row sm:flex-col  xm:flex-col gap-5" dir="rtl">
 
-                <div className="xl:w-64 lg:w-48 sm:w-full xm:w-full px-3 flex  " dir="rtl">
-
+                <div className="xl:w-50 lg:w-48 sm:w-full xm:w-full px-3 flex  " dir="rtl">
                     <HandleCategories  />
                 </div>
                 <div dir="rtl" className="w-full p-5">

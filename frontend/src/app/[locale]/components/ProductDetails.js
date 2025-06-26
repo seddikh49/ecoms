@@ -146,8 +146,8 @@ const ProductDetails = ({ product }) => {
     return (
         <div>
             <div className='w-full max-h-max gap-10  flex xl:flex-row lg:flex-row md:flex-col sm:flex-col xm:flex-col mt-10 '>
-                <div className='xl:w-1/2   lg:w-1/2 md:w-full  h-max flex flex-col md:items-center  lg:items-end xl:items-end sm:items-center xm:items-center  sm:justify-start   '>
-                    <div className='flex flex-col items-end gap-2 pb-3 sm:ml-auto' >
+                <div className='xl:w-1/2   lg:w-1/2 md:w-full  h-max flex flex-col md:items-center  lg:items-end xl:items-end sm:items-end xm:items-end  sm:justify-start   '>
+                    <div className='flex p-8 flex-col items-end gap-2 pb-3 sm:ml-auto ' >
                         <p className='text-2xl font-bold'>{product.name}</p>
                         <div className='flex text-2xl font-bold'>
                             <h1>{currency} </h1>
@@ -247,15 +247,15 @@ const ProductDetails = ({ product }) => {
                                     <span className="font-bold">: الكمية</span>
                                 </div>
                                 <div className="flex justify-between font-bold">
-                                    <span>
-                                        {deliveryPrice} {currency}
-                                    </span>
+                                    <div className='flex gap-2'>
+                                     <h1> {currency}  </h1> <h1>{deliveryPrice}</h1> 
+                                    </div>
                                     <span>: سعر التوصيل</span>
                                 </div>
                                 <div className="flex justify-between border-t pt-3 font-bold text-lg">
-                                    <span>
-                                        {totalPrice} {currency}
-                                    </span>
+                                    <div className='flex gap-2'>
+                                        <h1>{currency} </h1>  <h1>{totalPrice}</h1>
+                                    </div>
                                     <span>: السعر الاجمالي</span>
                                 </div>
                             </div>

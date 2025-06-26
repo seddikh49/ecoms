@@ -142,6 +142,9 @@ export default async function RootLayout({ children, params }) {
             `,
           }}
         />
+
+
+        
         
         {/* Image Pixel لغير الجافاسكربت */}
         <noscript>

@@ -32,18 +32,8 @@ export default function Header() {
 
 
 
-
-  const navItems = [
-    { label: 'الرئيسية', href: '/ar' || '/en' },
-    { label: 'المنتجات', href: '/collection' },
-    { label: 'من نحن', href: '/about' },
-    { label: 'تواصل معنا', href: '/contact' },
-  ];
-
-  console.log(pathname.split('/')[pathname.split('/').length - 1])
-
   const currentPath = `/${pathname.split('/').slice(2).join('/')}`; // تخطي جزء اللغة
-  console.log("==> " + currentPath)
+
 
 
   const changeLanguage = (e) => {
@@ -78,9 +68,9 @@ export default function Header() {
       <div className="w-full mx-auto flex items-center justify-between ">
 
         {/* الشعار */}
-        <div className="xl:text-4xl lg:text-3xl md:text-3xl sm:text-2xl  xm:text-2xl font-extrabold tracking-widest">
+        <Link href={'/'} className="xl:text-4xl lg:text-3xl md:text-3xl sm:text-2xl  xm:text-2xl font-extrabold tracking-widest">
           KAMSED<span className='text-orange-500'>.</span>
-        </div>
+        </Link>
 
         {/* روابط التنقل */}
         <nav className={`xl:flex md:hidden lg:flex xm:hidden sm:hidden gap-5   `}     >
@@ -101,7 +91,7 @@ export default function Header() {
         <div className="flex items-center gap-2 space-x-4 space-x-reverse  ">
           {/* مكان الأيقونة محفوظ دائمًا */}
 
-          <div className=" xl:flex lg:flex md:flex justify-end text-gray-600 xm:hidden sm:flex bg-amber-600  ">
+          <div className=" xl:flex lg:flex md:flex justify-end text-gray-600 xm:hidden sm:flex  ">
             {pathname.split('/')[2] === 'collection' ? (
 
               <div className="relative max-w-md xl:w-50  h-10 md:w-44 sm:w-44 xm:w-24 lg:w-32">

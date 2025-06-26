@@ -6,8 +6,9 @@ import { fetchProducts } from "../../../../../lib/fetchProducts";
 
 export async function generateMetadata({ params }) {
   const products = await fetchProducts()
+  const {id} = await params
   const singleProduct = products.find(
-    (prod) => prod.id === params.id);
+    (prod) => prod.id === id);
   if (singleProduct) {
     return {
       title: singleProduct.name,
