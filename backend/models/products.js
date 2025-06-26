@@ -23,7 +23,7 @@ const Product = sequelize.define('Product', {
     allowNull: false,
     validate: {
       notEmpty: {
-        msg: "اسم المنتج لا يمكن أن يكون فارغًا"
+        msg: "وصف المنتج لا يمكن أن يكون فارغًا"
       }
     }
   },
@@ -32,7 +32,7 @@ const Product = sequelize.define('Product', {
     allowNull: false,
     validate: {
       notEmpty: {
-        msg: "اسم المنتج لا يمكن أن يكون فارغًا"
+        msg: "سعر المنتج لا يمكن أن يكون فارغًا"
       }
     }
   },
@@ -41,7 +41,7 @@ const Product = sequelize.define('Product', {
     allowNull: false,
     validate: {
       notEmpty: {
-        msg: "اسم المنتج لا يمكن أن يكون فارغًا"
+        msg: "يجب رفع صورة على الاقل"
       }
     }
   },
@@ -50,7 +50,7 @@ const Product = sequelize.define('Product', {
     allowNull: false,
     validate: {
       notEmpty: {
-        msg: "اسم المنتج لا يمكن أن يكون فارغًا"
+        msg: "يجب تحديد الفئة"
       }
     }
   },

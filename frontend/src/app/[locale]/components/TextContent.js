@@ -4,7 +4,6 @@
 
 export default function TextContent( {text1,text2} ) {
   
-  console.log(text1,text2)
   return (
     <>
       <div className="flex justify-center items-center gap-2 ">

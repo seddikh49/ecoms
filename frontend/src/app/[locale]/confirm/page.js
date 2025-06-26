@@ -63,9 +63,10 @@ const Confirm = () => {
                             <div className='absolute right-0 top-20'>
                                 <Lottie animationData={animationData2} loop={true} className='w-100' />
                             </div>
-                            <div className='flex xl:flex-row lg:flex-row md:flex-row sm:flex-col-reverse  xm:flex-col-reverse  gap-3'>
-                                <h1 className='font-bold text-4xl text-white bg-amber-500'>{nameConfirmation} </h1>
-                                <h1 className='font-bold text-4xl'> شكر جزيلا لك </h1>
+                            <div className='flex xl:flex-row lg:flex-row md:flex-row sm:flex-col  xm:flex-col  gap-3'>
+                                  <h1 className='font-bold text-4xl whitespace-nowrap  py-2'> شكر جزيلا لك </h1>
+                                <h1 className='font-bold text-4xl text-white bg-amber-500 whitespace-nowrap   py-2'>{nameConfirmation} </h1>
+                              
                             </div>
                             <h2 className='xl:text-4xl lg:text-3xl md:text-xl font-bold pb-4'>على ثقتك بنا وعلى طلبك الكريم</h2>
                             <p className='xl:text-2xl lg:text-xl md:text-xl font-bold'>يسعدنا خدمتك، وسنتصل بك خلال مدة قصيرة لتأكيد تفاصيل الطلب والتأكد من تلبية جميع احتياجاتك.
@@ -84,7 +85,7 @@ const Confirm = () => {
                         </div>
                         <div className='flex flex-col gap-2'>
                             <div className='flex  justify-between p-2 '>
-                                <p className=' text-end  whitespace-nowrap font-bold xl:text-lg lg:text-lg md:text-lg xm:text-sm sm:text-md'>{productName}</p>
+                                <p className=' text-end  whitespace-nowrap font-bold xl:text-lg lg:text-lg md:text-lg xm:text-sm sm:text-md ' >{productName}</p>
                                 <h1 className='text-end font-bold xl:text-lg lg:text-lg xm:text-sm md:text-lg sm:text-md'> : المنتج</h1>
                             </div>
                             <div>

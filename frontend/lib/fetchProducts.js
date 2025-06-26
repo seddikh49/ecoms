@@ -4,12 +4,10 @@ export async function fetchProducts() {
 
   const res = await fetch(`${apiUrl}/api/product/list`, {
     cache: "no-store",
-    headers: {
-    Origin: 'http://localhost:3002', // تحديد Origin يدويًا
-  },
+    headers: { 'X-API-Key': process.env.SERVER_API_KEY }
   });
 
   const data = await res.json();
-  console.log(data)
+
   return data.products || [];
 }

@@ -17,17 +17,12 @@ productRouter.post('/update-product',upload.fields([{ name: 'image1', maxCount: 
 
 
 productRouter.get('/list', async (req, res, next) => {
-    // const { origin } = req.headers;
-
-    // const allowedOrigins = [
-    //     'http://localhost:3005',
-    //     'http://localhost:5000'
-    // ];
-    // console.log(req.headers)
-    // if (!origin || !allowedOrigins.includes(origin)) {
-    //     return res.status(403).json({ msg: "This origin is not allowed" });
-    // }
-    return next();
+  console.log(req.headers)
+    const apiKey = req.headers['x-api-key'];
+    if (!apiKey || apiKey !== process.env.SERVER_API_KEY) {
+    return res.status(403).json({ msg: 'Invalid or missing API key' });
+  }
+  next();
 }, listProducts)
 productRouter.get('/admin-list', authAdmin, listProducts)
 

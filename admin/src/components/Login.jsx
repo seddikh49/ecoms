@@ -23,7 +23,7 @@ const Login = ({ setToken }) => {
         email,
         password
       });
-      console.log(response)
+      
 
       if (response.data.success) {
         console.log("success")
@@ -33,10 +33,10 @@ const Login = ({ setToken }) => {
         setIsAdmin(true)
       }
       else {
-        toast.error('Wrong email or password')
+        toast.error(response)
       }
     } catch (error) {
-      console.log(error)
+     toast.error(error.response.data.msg)
     }
   }
 

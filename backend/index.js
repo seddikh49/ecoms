@@ -7,6 +7,7 @@ import dotenv from 'dotenv';
 const app = express();
 const port = 3000;
 import cors from 'cors'
+import authAdmin from './middlewares/admin.js';
 // app.use(cors({
 //    origin: ['https://your-frontend.com'], // فقط هذه الدومينات مسموحة
 //   methods: ['GET', 'POST'],
@@ -15,14 +16,12 @@ import cors from 'cors'
 
 
 const allowedOrigins = [
-  'https://republic.com',
   'http://localhost:3002',
    'http://localhost:5000'
 ];
 
 const corsOptions = {
   origin: function (origin, callback) {
-    // السماح بدون Origin في بعض الحالات مثل Postman أو Curl
     if (!origin || allowedOrigins.includes(origin)) {
       callback(null, true);
     } else {
@@ -68,3 +67,4 @@ const startServer = async () => {
 };
 
 startServer();
+

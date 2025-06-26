@@ -5,8 +5,6 @@ import Product from '../models/products.js';
 
 const listProducts = async (req, res) => {
     try {
-        console.log(req.headers)
-
         const products = await Product.findAll({});
         res.status(200).json({ products, msg: true });
     } catch (error) {
@@ -15,7 +13,7 @@ const listProducts = async (req, res) => {
 };
 
 const addProduct = async (req, res) => {
-
+  
     const images = [];
 
     if (req.files.image1) images.push(req.files.image1[0].path);
@@ -58,11 +56,11 @@ const singleProduct = async (req, res) => {
         const singleProduct = await productModel.findByPk(productId);
         res.json({
 
-            msg: "this product deleted succesfully",
+            msg: "this product  succesfully",
             product: singleProduct,
         });
     } catch (error) {
-        console.log(error);
+        return res.status(404).json({msg:error})
     }
 };
 
@@ -94,17 +92,18 @@ const updateProduct = async (req, res) => {
         if (req.files.image3) images.push(req.files.image1[0].path);
         if (req.files.image4) images.push(req.files.image1[0].path);
         const { id, name, description, price, image, category } = req.body;
+      
         const [updatedProduct] = await Product.update(
             { name, description, price, category , image : images },
             { where: { id } }
         );
-        console.log(updatedProduct)
-         if(!updatedProduct){
-            return res.json({succes : false , msg : 'لا يوجد منتج لتعديله '})
+         if(updatedProduct === 0){
+            console.log("message")
+            return res.json({success : false , msg : 'لا يوجد منتج لتعديله '})
         }
-        return  res.json({succes : true , msg : 'تم تحديث المنتج بنجاح '})
+        return  res.json({success : true , msg : 'تم تحديث المنتج بنجاح '})
     } catch (error) {
-        console.log(error)
+        return res.json(error)
     }
 
 

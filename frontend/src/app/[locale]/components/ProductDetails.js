@@ -21,7 +21,10 @@ import { useShop } from '../context/shopContext'
 import Link from 'next/link';
 import axios from 'axios';
 
+
+
 const ProductDetails = ({ product }) => {
+    
     const router = useRouter()
     const [loading, setLoading] = useState(false);
     const [status, setstatus] = useState('جديد');
@@ -57,7 +60,7 @@ const ProductDetails = ({ product }) => {
         setnameConfirmation(fullName)
 
         try {
-            const response = await axios.post(`https://backend.kamsed.com/api/order/add`, {
+            const response = await axios.post(`${apiUrl}/api/order/add`, {
                 fullName,
                 phone,
                 wilaya,
@@ -80,6 +83,7 @@ const ProductDetails = ({ product }) => {
                     setLoading(false)
                     return toast.error(response.data.msg.message)
                 }else{
+                    setLoading(false)
                     return toast.error(response.data.msg.errors[0].message)
                 }
                 

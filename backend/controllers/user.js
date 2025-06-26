@@ -13,7 +13,7 @@ const admin = (req, res) => {
         )
         return res.json({success:true, token: token })
     } else {
-        res.json({ msg: 'sorry ,access denied ' })
+        res.status(401).json({success:true,  msg: 'sorry, access denied' });
     }
 }
 

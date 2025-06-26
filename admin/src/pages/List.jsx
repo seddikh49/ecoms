@@ -7,7 +7,7 @@ import { CiEdit } from "react-icons/ci";
 import { MdDelete } from "react-icons/md";
 import Swal from 'sweetalert2';
 import { Link } from 'react-router-dom';
-import { OrderContext } from '../context/orderContext';
+import { OrderContext } from '../context/OrderContext';
 
 
 
@@ -57,7 +57,6 @@ const List = ({ token }) => {
               Authorization: `Bearer ${token}`
             }
           })
-          console.log(response)
 
           if (response.data.success) {
             toast.success(response.data.msg)

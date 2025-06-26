@@ -4,13 +4,15 @@ import { assets } from '../assets/assets'
 import axios from 'axios';
 import { backEndUrl } from '../App'
 import { toast } from 'react-toastify';
-import { useParams } from 'react-router-dom';
-import { OrderContext } from '../context/orderContext';
+import { useNavigate, useParams } from 'react-router-dom';
+import { OrderContext } from '../context/OrderContext';
+import { ClipLoader } from "react-spinners";
 
 
 
 const Edit = () => {
     const { list } = useContext(OrderContext)
+    const [loading, setLoading] = useState(false);
     const [token, settoken] = useState('');
     const [image1, setImage1] = useState(false);
     const [image2, setImage2] = useState(false);
@@ -19,7 +21,8 @@ const Edit = () => {
     const [name, setName] = useState("");
     const [description, setDescription] = useState("");
     const [price, setPrice] = useState('');
-    const [category, setCategory] = useState("Men");
+    const [category, setCategory] = useState("");
+    const navigate = useNavigate();
 
     const params = useParams()
 
@@ -47,7 +50,9 @@ const Edit = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault()
+        setLoading(true)
         try {
+         
             const dataForm = new FormData()
             dataForm.append('id', params.id)
             dataForm.append("name", name)
@@ -70,22 +75,26 @@ const Edit = () => {
                     Authorization: `Bearer ${token}`
                 }
             });
-            console.log(response)
-            // if (response.data.success) {
-            //     toast.success('product added successfully')
-            //     setName('')
-            //     setDescription('')
-            //     setImage1(false)
-            //     setImage2(false)
-            //     setImage3(false)
-            //     setImage4(false)
-            //     setPrice('')
-            // } else {
-            //     toast.error(response.data.msg)
-            // }
+
+            if (response.data.success) {
+              
+                toast.success(response.data.msg)
+                setName('')
+                setDescription('')
+                setImage1(false)
+                setImage2(false)
+                setImage3(false)
+                setImage4(false)
+                setPrice('')
+                setLoading(false)
+                navigate('/list')
+                return
+            }
+            setLoading(false)
+            return toast.error(response.data.errors[0].message)
 
         } catch (error) {
-            console.log(error)
+            toast.error(error.data.errors)
         }
     }
 
@@ -126,12 +135,12 @@ const Edit = () => {
                         </div>
                         <div className='w-full'>
                             <p className='mb-2 font-bold'>وصف المنتج</p>
-                            <textarea onChange={(e) => setdescription(e.target.value)} value={description} type="text" placeholder='Write content here' className=' w-full max-w-[500px] font-poppins px-4 py-2' />
+                            <textarea onChange={(e) => setDescription(e.target.value)} value={description} type="text" placeholder='Write content here' className=' w-full max-w-[500px] font-poppins px-4 py-2' />
                         </div>
                         <div className='flex sm:flex-col xl:flex-row w-full gap-4 xm:flex-col'>
                             <div className=''>
                                 <p className='mb-2 font-bold whitespace-nowrap'>الفئة</p>
-                                <select onChange={(e) => setCategory(e.target.value)} value={category} className='py-2 px-5 font-poppins' name="" id="">
+                                <select onChange={(e) => setCategory(e.target.value)}  value={category} className='py-2 px-5 font-poppins' name="" id="">
                                     <option value="Men">Men</option>
                                     <option value="Women">Women</option>
                                     <option value="Kids">Kids</option>
@@ -139,12 +148,12 @@ const Edit = () => {
                             </div>
                             <div className=''>
                                 <p className='mb-2 font-bold'>سعر المنتج</p>
-                                <input onChange={(e) => setprice(Number(e.target.value))} value={price} className='py-2 font-poppins px-4 ' type="Number" />
+                                <input onChange={(e) => setPrice(Number(e.target.value))} value={price} className='py-2 font-poppins px-4 ' type="Number" />
                             </div>
                         </div>
                         <div >
                             <div className='mt-3 mb-5  gap-3'>
-                                <button className='bg-black text-white px-10 py-2 cursor-pointer font-bold'>اضافة المنتج</button>
+            <button disabled={loading}  className='bg-black cursor- w-44 max-w-44 flex justify-center items-center text-white px-10 h-10 max-h-10 cursor-pointer font-bold'>{loading ? <ClipLoader  color="#fff" className='' size={30} />  :"تعديل المنتج"  } </button>
                             </div>
                         </div>
                     </form>
