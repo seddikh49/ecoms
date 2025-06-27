@@ -84,6 +84,7 @@ const ProductDetails = ({ product }) => {
                     return toast.error(response.data.msg.message)
                 }else{
                     setLoading(false)
+                    console.log(response)
                     return toast.error(response.data.msg.errors[0].message)
                 }
                 
@@ -235,14 +236,15 @@ const ProductDetails = ({ product }) => {
                                 <h1 className="text-white font-bold text-lg">: تفاصيل الطلب</h1>
                             </div>
                             <div className="p-4 space-y-4 text-sm text-gray-700">
-                                <div className="text-end">
+                                <div className=" flex justify-between">
+                                     <p>{product?.name}</p>
                                     <h2 className="font-bold">: المنتج</h2>
-                                    <p>{product?.name}</p>
+                                   
                                 </div>
                                 <div className="flex justify-between">
                                     <div className="flex gap-1 font-bold">
                                         <span>{quantity}</span>
-                                        <span>ق</span>
+                                       
                                     </div>
                                     <span className="font-bold">: الكمية</span>
                                 </div>

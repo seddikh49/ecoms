@@ -29,8 +29,8 @@ const Orders = () => {
     copiedOrders,
     backEndUrl,
     fetchOrders} = useContext(OrderContext)
- 
 
+  
 
   const handleDelete = (id) => {
 
@@ -158,7 +158,7 @@ const Orders = () => {
               </tr>
             </thead>
             <tbody>
-              {orders.map((order, index) => {
+              {orders?.map((order, index) => {
                 return (
                   <tr key={index} className="border border-gray-300">
 
@@ -167,7 +167,7 @@ const Orders = () => {
                         <MdDelete />
                       </button>
 
-                      <NavLink to={`/orderdetail/${order.fullName}`} className='cursor-pointer hover:bg-green-800 bg-green-500 text-white xl:py-3  xm:py-[5px] xm:px-2  xl:px-3 font-bold rounded-md'>
+                      <NavLink to={`/orderdetail/${order.id}`} className='cursor-pointer hover:bg-green-800 bg-green-500 text-white xl:py-3  xm:py-[5px] xm:px-2  xl:px-3 font-bold rounded-md'>
                         <FaEye />
 
                       </NavLink>

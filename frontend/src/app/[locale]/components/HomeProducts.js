@@ -5,7 +5,6 @@ import Image from 'next/image';
 import Link from 'next/link';
 import TextContent from './TextContent';
 import { motion } from "framer-motion";
-import { Currency } from 'lucide-react';
 
 
 

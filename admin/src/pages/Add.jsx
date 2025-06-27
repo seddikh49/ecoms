@@ -56,7 +56,7 @@ const override = {
       });
       if (response.data.success) {
         setLoading(false)
-        toast.success('product added successfully')
+        toast.success(response.data.msg)
         setName('')
         setdescription('')
         setImage1(false)
@@ -65,8 +65,9 @@ const override = {
         setImage4(false)
         setprice('')
       } else {
-        console.log(response)
-        toast.error(response.data.msg)
+        setLoading(false)
+        toast.error(response.data.msg.errors[0].message)
+        console.log(response.data.msg.errors[0].message)
       }
 
     } catch (error) {

@@ -2,6 +2,11 @@ import { sequelize } from '../postgres/postgres.js';
 import { DataTypes } from 'sequelize';
 
 const Order = sequelize.define("Order", {
+   id: {
+    type: DataTypes.UUID,
+    defaultValue: DataTypes.UUIDV4, // لإنشاء UUID تلقائي عند إدخال بيانات جديدة
+    primaryKey: true
+  },
   fullName: {
     type: DataTypes.STRING,
     allowNull: false,
