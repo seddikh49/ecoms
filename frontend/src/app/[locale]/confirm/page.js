@@ -95,8 +95,6 @@ const Confirm = () => {
 
                                     <div className='flex gap-2 font-bold'>
                                         <h1 className='font-bold'>{quantity} </h1>
-                                        <h1 className='font-bold'>ق</h1>
-
                                     </div>
                                 </div>
                             </div>
@@ -108,6 +106,13 @@ const Confirm = () => {
                                     <h1 className='font-bold'>{currency}</h1>
                                 </div>
                             </div>
+                               <div className="flex justify-between font-bold text-lg p-3">
+                                  <span> سعر المنتج :</span>
+                                    <div className='flex gap-2'>
+                                      <h1> {totalPrice -  deliveryPrice}  </h1> <h1>{currency}</h1> 
+                                    </div>
+                                  
+                                </div>
                             <div className='flex justify-between gap-2 font-bold text-lg border-t-1 border-black/20 p-3'>
                                 <h1 className='text-xl'>  السعر الاجمالي :</h1>
                                 <div className='flex gap-2 '>

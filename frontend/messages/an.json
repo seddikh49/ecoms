@@ -1,7 +1,7 @@
 {
   "links": {
     "home": {
-      "label": "Home",
+      "label": "home",
       "href": "/"
     },
     "collection": {
@@ -9,11 +9,11 @@
       "href": "/collection"
     },
     "about": {
-      "label": "About Us",
+      "label": "about Us",
       "href": "/about"
     },
     "contact": {
-      "label": "Contact Us",
+      "label": "contact Us",
       "href": "/contact"
     }
   }

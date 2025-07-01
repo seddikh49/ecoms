@@ -1,4 +1,5 @@
 import React from 'react'
+import Container from './Container'
 
 
 
@@ -8,7 +9,9 @@ const Footer = () => {
 
   return (
     <div className='mt-20 xm:px-10'>
-      <div className='flex xl:flex-row xl:items-start md:items-start lg:items-start sm:items-end xm:items-end  lg:flex-row md:flex-row sm:flex-col xm:flex-col   justify-evenly mt-10 mb-10 gap-10 '>
+      <Container>
+        Footer
+    {/* <div className='flex xl:flex-row xl:items-start md:items-start lg:items-start sm:items-end xm:items-end  lg:flex-row md:flex-row sm:flex-col xm:flex-col   justify-evenly mt-10 mb-10 gap-10 '>
         
       <div className='flex flex-col gap-5 pt-2' dir='rtl'>
           <h1 className='text-2xl font-extrabold text-gray-600 font-cairo '>تواصل معنا</h1>
@@ -37,7 +40,9 @@ const Footer = () => {
           </p>
         </div>
       </div>
-      <div className='text-center  py-6 text-xl font-light text-gray-600 font-cairo border-gray-400  border-t-1'>@kamsed.com  {date.getFullYear()} - كل الحقوق محفوظة </div>
+      <div className='text-center  py-6 text-xl font-light text-gray-600 font-cairo border-gray-400  border-t-1'>@kamsed.com  {date.getFullYear()} - كل الحقوق محفوظة </div> */}
+      </Container>
+  
     </div>
   )
 }

@@ -74,7 +74,7 @@ const ProductDetails = ({ product }) => {
 
 
             if (response.data.success) {
-                toast.success('تم طلب المنتج')
+                toast.success(response.data.msg)
                 setLoading(false)
                 router.push('/confirm')
             }
@@ -225,6 +225,7 @@ const ProductDetails = ({ product }) => {
                                 <button type="button" onClick={decrementQuantity} className="w-10 h-10 bg-red-600 text-white font-bold text-xl hover:bg-red-700 transition">
                                     -
                                 </button>
+                               
                             </div>
                             <h1 className="text-lg font-bold text-gray-700 text-right">:    كمية المنتج</h1>
                         </div>
@@ -237,7 +238,7 @@ const ProductDetails = ({ product }) => {
                             </div>
                             <div className="p-4 space-y-4 text-sm text-gray-700">
                                 <div className=" flex justify-between">
-                                     <p>{product?.name}</p>
+                                     <p>{product.name}</p>
                                     <h2 className="font-bold">: المنتج</h2>
                                    
                                 </div>
@@ -253,6 +254,12 @@ const ProductDetails = ({ product }) => {
                                      <h1> {currency}  </h1> <h1>{deliveryPrice}</h1> 
                                     </div>
                                     <span>: سعر التوصيل</span>
+                                </div>
+                                 <div className="flex justify-between font-bold">
+                                    <div className='flex gap-2'>
+                                      <h1>{currency}</h1> <h1> {product.price * quantity}  </h1>
+                                    </div>
+                                    <span>: سعر المنتج</span>
                                 </div>
                                 <div className="flex justify-between border-t pt-3 font-bold text-lg">
                                     <div className='flex gap-2'>

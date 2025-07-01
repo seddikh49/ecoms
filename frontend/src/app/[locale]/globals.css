@@ -11,6 +11,9 @@
 
 }
 
+.hoverEffect {
+  @apply cursor-pointer hover:text-black transition-all ease-in-out duration-300;
+}
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
