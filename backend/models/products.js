@@ -1,62 +1,47 @@
 import { DataTypes } from 'sequelize';
 import { sequelize } from '../postgres/postgres.js';
 
-
 const Product = sequelize.define('Product', {
-   id: {
+  id: {
     type: DataTypes.UUID,
-    defaultValue: DataTypes.UUIDV4, // لإنشاء UUID تلقائي عند إدخال بيانات جديدة
+    defaultValue: DataTypes.UUIDV4,
     primaryKey: true
   },
   name: {
     type: DataTypes.STRING,
     allowNull: false,
     validate: {
-      notEmpty: {
-        msg: "اسم المنتج لا يمكن أن يكون فارغًا"
-      }
+      notEmpty: { msg: "اسم المنتج لا يمكن أن يكون فارغًا" }
     }
   },
-
   description: {
     type: DataTypes.TEXT,
     allowNull: false,
     validate: {
-      notEmpty: {
-        msg: "وصف المنتج لا يمكن أن يكون فارغًا"
-      }
+      notEmpty: { msg: "وصف المنتج لا يمكن أن يكون فارغًا" }
     }
   },
   price: {
     type: DataTypes.FLOAT,
     allowNull: false,
     validate: {
-      notEmpty: {
-        msg: "سعر المنتج لا يمكن أن يكون فارغًا"
-      }
+      notEmpty: { msg: "سعر المنتج لا يمكن أن يكون فارغًا" }
     }
   },
   image: {
-    type: DataTypes.ARRAY(DataTypes.STRING), // Assuming it's an array of image URLs
+    type: DataTypes.ARRAY(DataTypes.STRING), // مصفوفة صور
     allowNull: false,
     validate: {
-      notEmpty: {
-        msg: "يجب رفع صورة على الاقل"
-      }
+      notEmpty: { msg: "يجب رفع صورة على الأقل" }
     }
   },
-  category: {
-    type: DataTypes.STRING,
-    allowNull: false,
-    validate: {
-      notEmpty: {
-        msg: "يجب تحديد الفئة"
-      }
-    }
+  categoryId: {
+    type: DataTypes.UUID,
+    allowNull: false
   },
   date: {
     type: DataTypes.DATE,
-    allowNull: false,
+    allowNull: false
   }
 }, {
   tableName: 'products',

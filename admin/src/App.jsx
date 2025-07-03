@@ -9,11 +9,12 @@ import Login from './components/Login'
 import { ToastContainer } from 'react-toastify';
 import Orderdetail from './pages/Orderdetail'
 import axios from 'axios'
-import { OrderContext } from './context/OrderContext'
+import { OrderContext } from './context/orderContext'
 import Home from './pages/Home'
 import Lottie from 'lottie-react';
 import loadingAnimation from './assets/loading.json';
 import Edit from './pages/edit'
+import Categories from './pages/categories'
 
 
 
@@ -91,6 +92,7 @@ const App = () => {
                   <Route path='/orders' element={<Orders />} />
                   <Route path='/list' element={<List token={token} />} />
                   <Route path='/orderdetail/:name' element={<Orderdetail token={token} />} />
+                  <Route path='/categories' element={<Categories token={token} />} />
                 </Routes>
               </div>
               <div className='xl:w-56  lg:block lg:w-52 md:w-44 sm:w-20 xm:w-12  '>

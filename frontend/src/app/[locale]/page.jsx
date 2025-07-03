@@ -7,6 +7,9 @@ import HomeProducts from './components/HomeProducts';
 import { Button } from '../../../@/components/ui/button';
 import Container from './components/Container'
 
+import HomeBanner from './components/HomeBanner'
+
+
 export const metadata = {
   title: "kamsed-store - متجر كامسد"
 };
@@ -20,10 +23,8 @@ export default async function Home() {
   return (
 
     <div className='' >
-          <Container>
-    
-         <div>Home page</div>
-         <div>RIGHT</div>
+          <Container className='py-10'>
+          <HomeBanner/>
        </Container>
       {/* <Hero /> */}
      {/* <HomeProducts/> */}
