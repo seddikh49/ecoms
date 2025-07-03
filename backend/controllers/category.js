@@ -4,7 +4,7 @@ import Category from '../models/category.js';
 export const addCategory = async (req, res) => {
   try {
     const { name } = req.body;
-
+    console.log(req.body)
     // التأكد من وجود اسم الفئة
     if (!name) {
       return res.status(400).json({ message: "اسم الفئة مطلوب" });
@@ -17,7 +17,7 @@ export const addCategory = async (req, res) => {
     }
 
     const category = await Category.create({ name });
-    res.status(201).json(category);
+    return res.status(201).json({ success: true, category });
 
   } catch (error) {
     console.error(error);
@@ -28,12 +28,13 @@ export const addCategory = async (req, res) => {
 
 // جلب جميع الفئات
 export const getAllCategories = async (req, res) => {
+  console.log('fetched')
   try {
     const categories = await Category.findAll();
-    res.json(categories);
+    return res.status(200).json({ success: true, categories })
   } catch (error) {
     console.error(error);
-    res.status(500).json({ message: "حدث خطأ أثناء جلب الفئات" });
+    return res.status(500).json({ message: "حدث خطأ أثناء جلب الفئات" });
   }
 };
 
@@ -41,15 +42,16 @@ export const getAllCategories = async (req, res) => {
 // حذف فئة
 export const deleteCategory = async (req, res) => {
   try {
+    
     const { id } = req.params;
-
+console.log(id)
     const category = await Category.findByPk(id);
     if (!category) {
       return res.status(404).json({ message: "الفئة غير موجودة" });
     }
 
     await category.destroy();
-    res.json({ message: "تم حذف الفئة بنجاح" });
+    return res.json({ success: true, msg: "تم حذف الفئة" });
 
   } catch (error) {
     console.error(error);

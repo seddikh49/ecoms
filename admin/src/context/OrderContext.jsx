@@ -13,11 +13,12 @@ const OrderContextProvider = ({ children }) => {
   const [status, setStatus] = useState("جديد");
   const [isAdmin, setIsAdmin] = useState();
   const [list, setList] = useState([]);
+  const [categories, setCategories] = useState([]);
 
 
 
   const fetchOrders = async () => {
-    console.log(backEndUrl)
+  
     try {
       const response = await axios.get(`${backEndUrl}/api/order/list`)
 
@@ -37,6 +38,23 @@ const OrderContextProvider = ({ children }) => {
   }, [status]);
 
 
+  const fetchCategories = async () => {
+        try {
+            const response = await axios.get(`${backEndUrl}/api/category/list`)
+            if (response.data.success) {
+                setCategories(response.data.categories)
+
+            }
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+    useEffect(() => {
+        fetchCategories()
+    }, []);
+
+
 
 
 
@@ -54,7 +72,10 @@ const OrderContextProvider = ({ children }) => {
     isAdmin,
     setIsAdmin,
     list,
-    setList
+    setList,
+    categories,
+    setCategories,
+    fetchCategories
   }
 
 

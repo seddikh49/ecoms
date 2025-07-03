@@ -7,7 +7,7 @@ import authAdmin from '../middlewares/admin.js'
 const categoryRouter = express.Router()
 
 
-categoryRouter.post('/add', addCategory)
+categoryRouter.post('/add',authAdmin, addCategory)
 categoryRouter.get('/list', getAllCategories)
 categoryRouter.delete('/delete/:id', deleteCategory)
 categoryRouter.put('/update/:id', updateCategory)

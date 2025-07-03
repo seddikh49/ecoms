@@ -5,7 +5,7 @@ import axios from 'axios';
 import { backEndUrl } from '../App'
 import { toast } from 'react-toastify';
 import { useNavigate, useParams } from 'react-router-dom';
-import { OrderContext } from '../context/OrderContext';
+import { OrderContext } from '../context/orderContext';
 import { ClipLoader } from "react-spinners";
 
 

@@ -6,6 +6,8 @@ import { IoMdAddCircle } from "react-icons/io";
 import { FaRectangleList } from "react-icons/fa6";
 import { OrderContext } from '../context/orderContext';
 import axios from 'axios';
+import { BiSolidCategory } from "react-icons/bi";
+
 
 
 
@@ -71,6 +73,10 @@ const SideBar = () => {
           {notifications > 0 && (
             <div className='absolute left-1 top-1 bg-red-500 text-white rounded-full w-6 h-6 flex justify-center items-center font-poppins'>{notifications} </div>
           )}
+        </NavLink>
+          <NavLink to={'/categories'} className='flex w-full  font-sans font-bolds   rounded-l px-3 py-2 border   items-center justify-start gap-3 border-gray-300 border-r-0'>
+          <BiSolidCategory className='sm:text-1xl xm:text-1xl xl:text-4xl lg:text-4xl md:text-4xl' />
+          <p className='sm:hidden  sm:text-[12px]  xl:text-xl md:text-md xl:block lg:block md:block xm:hidden font-bold '> الفئات</p>
         </NavLink>
       </div>
     </div>
