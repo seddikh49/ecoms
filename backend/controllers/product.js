@@ -1,5 +1,6 @@
 import express from "express";
-import Product from '../models/products.js';
+import { Product, Category } from '../models/index.js';
+
 
 
 
@@ -7,7 +8,7 @@ import Product from '../models/products.js';
 
 const listProducts = async (req, res) => {
     try {
-        const products = await Product.findAll({});
+        const products = await Product.findAll({ include: Category });
         res.status(200).json({ products, msg: true });
     } catch (error) {
         res.status(500).json({ error: error.message, msg: false });
@@ -30,15 +31,16 @@ const addProduct = async (req, res) => {
             name,
             description,
             price,
-            category,
+            categoryId,
             date,
         } = req.body;
+        console.log(req.body)
 
         const newProduct = await Product.create({
             name,
             description,
             price: Number(price),
-            category,
+            categoryId,
             image: images, // ← أضفها هنا أيضاً
             date: new Date()
         });
@@ -51,7 +53,7 @@ const addProduct = async (req, res) => {
 const singleProduct = async (req, res) => {
     try {
         const { productId } = req.body;
-        const singleProduct = await productModel.findByPk(productId);
+        const singleProduct = await Product.findByPk(productId);
         res.json({
 
             msg: "this product  succesfully",
@@ -89,10 +91,10 @@ const updateProduct = async (req, res) => {
         if (req.files.image2) images.push(req.files.image1[0].path);
         if (req.files.image3) images.push(req.files.image1[0].path);
         if (req.files.image4) images.push(req.files.image1[0].path);
-        const { id, name, description, price, image, category } = req.body;
+        const { id, name, description, price, image, categoryId } = req.body;
       
         const [updatedProduct] = await Product.update(
-            { name, description, price, category , image : images },
+            { name, description, price, categoryId , image : images },
             { where: { id } }
         );
          if(updatedProduct === 0){

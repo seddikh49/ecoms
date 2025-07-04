@@ -41,6 +41,7 @@ const OrderContextProvider = ({ children }) => {
   const fetchCategories = async () => {
         try {
             const response = await axios.get(`${backEndUrl}/api/category/list`)
+            console.log(response)
             if (response.data.success) {
                 setCategories(response.data.categories)
 

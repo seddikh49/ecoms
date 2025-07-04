@@ -1,6 +1,8 @@
 import Category from './category.js';
-import Product from './Product.js';
+import Product from './products.js';
 
-// تعريف العلاقة
+// تعريف العلاقات
 Category.hasMany(Product, { foreignKey: 'categoryId' });
 Product.belongsTo(Category, { foreignKey: 'categoryId' });
+
+export { Category, Product };

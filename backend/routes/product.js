@@ -17,7 +17,7 @@ productRouter.post('/update-product',upload.fields([{ name: 'image1', maxCount: 
 
 
 productRouter.get('/list', async (req, res, next) => {
-  console.log(req.headers)
+ 
     const apiKey = req.headers['x-api-key'];
     if (!apiKey || apiKey !== process.env.SERVER_API_KEY) {
     return res.status(403).json({ msg: 'Invalid or missing API key' });

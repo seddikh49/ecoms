@@ -1,5 +1,4 @@
-import Category from '../models/category.js';
-
+import { Category } from '../models/index.js';
 // إضافة فئة جديدة
 export const addCategory = async (req, res) => {
   try {
@@ -28,7 +27,7 @@ export const addCategory = async (req, res) => {
 
 // جلب جميع الفئات
 export const getAllCategories = async (req, res) => {
-  console.log('fetched')
+  
   try {
     const categories = await Category.findAll();
     return res.status(200).json({ success: true, categories })

@@ -20,3 +20,21 @@ import { Youtube,Tiktok, Facebook, Instagram, } from "lucide-react";
     },
   
  ]
+
+
+
+ export async function fetchCategories() {
+  const apiUrl = process.env.NEXT_PUBLIC_API_URL; // ✅ بدون await
+
+
+  const res = await fetch(`${apiUrl}/api/category/list`, {
+    cache: "no-store",
+    headers: { 'X-API-Key': process.env.SERVER_API_KEY }
+  });
+
+  const data = await res.json();
+
+  return data.categories || [];
+}
+
+

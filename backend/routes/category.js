@@ -8,6 +8,8 @@ const categoryRouter = express.Router()
 
 
 categoryRouter.post('/add',authAdmin, addCategory)
+// categoryRouter.get('/list', getAllCategories)
+
 categoryRouter.get('/list', getAllCategories)
 categoryRouter.delete('/delete/:id', deleteCategory)
 categoryRouter.put('/update/:id', updateCategory)

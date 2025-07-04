@@ -6,6 +6,7 @@ import Hero from './components/Hero';
 import HomeProducts from './components/HomeProducts';
 import { Button } from '../../../@/components/ui/button';
 import Container from './components/Container'
+import ProductGrid from "./components/ProductGrid"
 
 import HomeBanner from './components/HomeBanner'
 
@@ -25,6 +26,7 @@ export default async function Home() {
     <div className='' >
           <Container className='py-10'>
           <HomeBanner/>
+          <ProductGrid/>
        </Container>
       {/* <Hero /> */}
      {/* <HomeProducts/> */}
