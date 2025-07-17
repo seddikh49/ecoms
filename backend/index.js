@@ -49,19 +49,19 @@ app.get('/', (req, res) => {
 
 
 
-const startServer = async () => {
-  try {
-    await connect(); // الاتصال بقاعدة البيانات
-    await sequelize.sync({ alter: true }); // إنشاء أو تعديل الجداول
-    console.log("✅ Database synced");
+  const startServer = async () => {
+    try {
+      await connect(); // الاتصال بقاعدة البيانات
+      await sequelize.sync({ alter: true }); // إنشاء أو تعديل الجداول
+      console.log("✅ Database synced");
 
-    app.listen(port, () => {
-      console.log(`✅ Server running on http://localhost:${port}`);
-    });
-  } catch (err) {
-    console.error("❌ Failed to start server:", err);
-  }
-};
+      app.listen(port, () => {
+        console.log(`✅ Server running on http://localhost:${port}`);
+      });
+    } catch (err) {
+      console.error("❌ Failed to start server:", err);
+    }
+  };
 
-startServer();
+  startServer();
 

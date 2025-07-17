@@ -5,7 +5,7 @@ import React from 'react'
 import about from '../../../../public/‏‏assets/animation/about'
 
 
-import TextContent from '../components/TextContent'
+
 const Lottie = dynamic(() => import('lottie-react'), { ssr: false });
 
 
@@ -18,7 +18,7 @@ const About = () => {
     <div className='mt-10'>
 
       <div className='text-center text-2xl'>
-        <TextContent text1={'من نحن'} />
+     
       </div>
       <div className='flex gap-5 xl:flex-row sm:flex-col xm:flex-col items-center justify-evenly mt-5'>
         <div>
@@ -35,7 +35,7 @@ const About = () => {
         </div>
       </div>
       <div className='text-center mt-10'>
-        <TextContent text1={'لماذا نحن'} />
+  
       </div>
 
       <div dir='rtl' className='mt-10 flex xl:flex-row xm:flex-col gap-6 px-10'>

@@ -5,7 +5,7 @@
 import React from 'react';
 import dynamic from 'next/dynamic';
 
-import TextContent from '../components/TextContent';
+
 import Link from 'next/link';
 
 
@@ -22,7 +22,7 @@ const Contact = () => {
   return (
     <div className='flex flex-col  justify-center md:items-center sm:items-center xl:items-center lg:items-center xm:items-end mb-23'>
       <div className='mt-10 text-black text-center px-10'>
-        <TextContent text1={'معنا'} text2={'تواصل'} />
+       
       </div>
 
       <div className='flex  xm:items-end xm:px-10 justify-between lg:flex-row xl:flex-row md:flex-col-reverse sm:flex-col-reverse xm:flex-col-reverse lg:items-center xl:items-center gap-5 text-gray-500'>

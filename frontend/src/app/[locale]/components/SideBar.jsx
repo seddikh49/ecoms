@@ -48,7 +48,7 @@ const SideBar = ({ isOpen, onClose }) => {
                 <div className='flex justify-between items-center' >
                     <Link href={'/'} onClick={onClose} className='text-white font-bold text-xl'>KAMSED</Link>
                     <button onClick={onClose} className={'hover:text-red-400 hoverEffect'}>
-                        <ImCross className='' />
+                        <ImCross className='cursor-pointer' />
                     </button>
                 </div>
 

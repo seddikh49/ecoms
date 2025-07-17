@@ -6,6 +6,7 @@ const addOrder = async (req, res) => {
 
     try {
         const { fullName, phone, wilaya, commune, productName, quantity, status, notification } = req.body;
+        // console.log(fullName, phone, wilaya, commune, productName, quantity, status, notification )
         const orderData = await Order.findOne({
             where: { phone }
         });
@@ -25,6 +26,7 @@ const addOrder = async (req, res) => {
             notification,
             // لو عندك حقل التاريخ وتبي تحط التاريخ الحالي تلقائياً، Sequelize يتعامل معه لو معرفته defaultValue
         });
+        console.log({"===>" : order})
         res.json({ success: true, msg: "تم طلب المنتج بنجاح " });
     } catch (error) {
         res.json({ success: false, msg: error })

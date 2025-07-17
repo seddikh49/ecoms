@@ -17,6 +17,7 @@ import { motion } from "framer-motion";
 
 
 
+
 import { useShop } from '../context/shopContext'
 import Link from 'next/link';
 import axios from 'axios';
@@ -24,7 +25,6 @@ import axios from 'axios';
 
 
 const ProductDetails = ({ product }) => {
-    
     const router = useRouter()
     const [loading, setLoading] = useState(false);
     const [status, setstatus] = useState('جديد');
@@ -83,8 +83,7 @@ const ProductDetails = ({ product }) => {
                     setLoading(false)
                     return toast.error(response.data.msg.message)
                 }else{
-                    setLoading(false)
-                    console.log(response)
+                    setLoading(false)  
                     return toast.error(response.data.msg.errors[0].message)
                 }
                 

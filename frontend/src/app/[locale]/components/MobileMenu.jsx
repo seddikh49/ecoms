@@ -10,7 +10,7 @@ const MobileMenu = () => {
   const [isOpenSideBar, setisOpenSideBar] = useState(false);
   return (
    <>
-    <button onClick={()=> setisOpenSideBar(!isOpenSideBar)}  className='sm:flex xm:flex xl:hidden md:flex  lg:hidden'>
+    <button onClick={()=> setisOpenSideBar(!isOpenSideBar)}  className='sm:flex cursor-pointer xm:flex xl:hidden md:flex  lg:hidden'>
       <FaAlignLeft className='text-gray-700 text-xl hoverEffect'/>
     </button>
     <div>

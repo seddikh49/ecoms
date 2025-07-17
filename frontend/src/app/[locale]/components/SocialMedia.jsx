@@ -20,7 +20,6 @@ const SocialMedia = () => {
                             </TooltipTrigger>
                             <TooltipContent className={'bg-white hoverEffect  text-black font-semibold'}>{social.title}</TooltipContent>
                         </Tooltip>
-
                     )
                 })}
             </div>

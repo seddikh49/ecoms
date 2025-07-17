@@ -2,8 +2,7 @@
 import React, { useContext } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import Hero from './components/Hero';
-import HomeProducts from './components/HomeProducts';
+
 import { Button } from '../../../@/components/ui/button';
 import Container from './components/Container'
 import ProductGrid from "./components/ProductGrid"
@@ -28,8 +27,7 @@ export default async function Home() {
           <HomeBanner/>
           <ProductGrid/>
        </Container>
-      {/* <Hero /> */}
-     {/* <HomeProducts/> */}
+
     </div>
   );
 }
