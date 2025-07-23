@@ -1,11 +1,17 @@
-import React from 'react'
-import { FaSearch } from 'react-icons/fa'
+import DialogContainer from './DialogContainer'
+import { fetchProducts } from '../../../../lib/fetchProducts'
+const SearchBar =async () => {
 
-const SearchBar = () => {
+  const products = await fetchProducts()
+
+
+
+
   return (
-    <div>
-     <FaSearch className='w-5 h-5 hover:text-black hoverEffect'/>
-    </div>
+    <>
+     <DialogContainer allProducts={products}/>
+    </>
+  
   )
 }
 

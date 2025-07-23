@@ -23,11 +23,10 @@ export default async function Home() {
   return (
 
     <div className='' >
-          <Container className='py-10'>
-          <HomeBanner/>
-          <ProductGrid/>
-       </Container>
-
+      <Container className='py-10'>
+        <HomeBanner />
+        <ProductGrid />
+      </Container>
     </div>
   );
 }

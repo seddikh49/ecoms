@@ -8,6 +8,7 @@ export async function generateMetadata({ params }) {
  
   const products = await fetchProducts()
   const {id} = await params
+  
 
   const singleProduct = products.find(
     (prod) => prod.id === id);
@@ -20,14 +21,22 @@ export async function generateMetadata({ params }) {
 }
 
 
+
 export default async function Product({ params }) {
 
-  const { id } = await params
-  const products = await fetchProducts()
-  const singleProduct = products.find(
-    (prod) => prod.id === id
-  );
+  const { name } = await params
+//   console.log(name)
+const decodedName = decodeURIComponent(name) // الناتج: "Red T-shirt"
+// console.log(decodedName)
 
+  const products = await fetchProducts()
+
+const normalize = (text) =>
+  text
+    ?.trim()  
+const singleProduct = products.find(
+  (prod) => normalize(prod.name) === normalize(decodedName)
+);
 
   return (
     <div>

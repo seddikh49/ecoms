@@ -38,7 +38,7 @@ const SideBar = ({ isOpen, onClose }) => {
    
 
     return (
-        <div className={`fixed inset-y-0 left-0 z-50 bg-black/50 shadow-xl ${!isOpen && '-translate-x-full'} xl:hidden  hoverEffect w-full`}>
+        <div className={`fixed inset-y-0 left-0 z-50 bg-black/50 shadow-xl ${!isOpen && '-translate-x-full'} xl:hidden   hoverEffect w-full`}>
 
             <motion.div
                 ref={blackDev}

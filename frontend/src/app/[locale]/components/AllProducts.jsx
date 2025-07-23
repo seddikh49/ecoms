@@ -49,12 +49,12 @@ const AllProducts = ({ products, categories }) => {
             <div className='flex justify-center items-center '>
                 <div className='flex items-center gap-1.5'>
                     {allCategories?.map((c) => {
-                        return <button onClick={() => changeSelected(c)} className={`border cursor-pointer border-black px-4 xl:py-2 xl:px-6
-                      rounded-full  hover:text-white hover:bg-black hoverEffect ${c?.name === selectedCategory && 'bg-black text-white'}`} key={c.id}>{c.name} </button>
+                        return <button onClick={() => changeSelected(c)} className={`border cursor-pointer border-black px-4 xl:py-1 xl:px-6
+                      rounded-full text-black font-medium  hover:text-white hover:bg-black hoverEffect ${c?.name === selectedCategory && 'bg-black text-white'}`} key={c.id}>{c.name} </button>
                     })}
                     <button className='border border-black p-2 
                       rounded-full  hover:text-white hover:bg-black hoverEffect '>
-                        <Repeat className=' w-5 h-5  ' />
+                        <Repeat className=' w-5 h-5 ' />
                     </button>
                 </div>
 
@@ -68,9 +68,9 @@ const AllProducts = ({ products, categories }) => {
                     </motion.div>
 
                 ) : allProducts.length ? (
-                    <div className='grid xl:grid-cols-4 lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1 mt-10 gap-8 w-full  '>
+                    <div className='grid xl:grid-cols-4 lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-2 xm:grid-cols-1 mt-10 gap-8 w-full  '>
                         {
-                            allProducts.map((item) => {
+                            allProducts?.map((item) => {
                                 return <div key={item.id}> <ProductCard product={item} /></div>
                             })
                         }

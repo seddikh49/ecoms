@@ -28,6 +28,7 @@ const List = ({ token }) => {
       });
       if (response.data.msg) {
         setList(response.data.products)
+        console.log(list)
       }
 
 
@@ -76,7 +77,7 @@ const List = ({ token }) => {
 
   return (
     <div className='p-10 flex flex-col gap-6'>
-      <p className='mb-3 text-end font-bold xl:text-4xl lg:text-4xl md:text-3xl sm:text-2xl xm:text-2xl text-gray-800'>جميع المنتجات</p>
+      <p className='mb-3 text-end font-bold xl:text-4xl lg:text-4xl md:text-3xl sm:text-2xl xm:text-2xl text-gray-800'>قائمة المنتجات</p>
 
 
       <div dir='rtl' className='border w-full border-gray-200 bg-gray-100 grid md:grid-cols-[1fr_1fr_1fr_0.5fr] sm:grid-cols-[1fr_1fr_0.5fr] xm:grid-cols-[1fr_1fr_0.5fr]  xl:grid-cols-[1fr_1fr_1fr_1fr_1fr_1fr_0.5fr] lg:grid-cols-[1fr_1fr_1fr_1fr_1fr_1fr_0.5fr]  px-6 py-3 rounded-md'>
@@ -102,9 +103,9 @@ const List = ({ token }) => {
             src={product.image[0]}
             alt={product.name}
           />
-          <p className='text-right text-xl font-medium text-gray-800 xl:block md:block lg:block sm:hidden xm:hidden'>{product.name}</p>
-          <p className='text-right text-xl font-medium text-gray-800  md:hidden xl:block lg:block sm:hidden xm:hidden'>{product.price}$</p>
-          <p className='text-right text-xl font-medium text-gray-800  md:hidden xl:block lg:block sm:hidden xm:hidden'>{product.category}</p>
+          <p className='text-right text-xl font-medium text-gray-800 xl:block md:block lg:block sm:hidden xm:hidden'>...{product.name.slice(0,15)}</p>
+          <div className='text-right text-xl font-medium text-gray-800  md:hidden xl:flex lg:flex  xm:hidden  gap-1'><h1>{product.price}</h1><h1>دج</h1></div>
+          <p className='text-right text-xl font-medium text-gray-800  md:hidden xl:block lg:block sm:hidden xm:hidden'>{product.Category.name}</p>
           <p className='text-right text-xl font-medium text-gray-800  md:hidden xl:block lg:block sm:hidden xm:hidden'>{product.description.slice(0, 7)}...</p>
           <div className='flex justify-center items-center gap-3'>
             <Link to={`/edit/${product.id}`} ><CiEdit className='xl:text-4xl xm:text-xl sm:text-xl lg:text-xl md:text-3xl text-green-600 hover:text-green-300' />

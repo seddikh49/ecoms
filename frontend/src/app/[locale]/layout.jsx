@@ -45,7 +45,7 @@ export default async function RootLayout({ children, params }) {
   const products = await fetchProducts();
 
   return (
-    <html lang={locale}>
+    <html lang={locale} className=''>
       <head>
         {/* يمكن إضافة Favicon أو أكواد ثابتة هنا */}
       </head>

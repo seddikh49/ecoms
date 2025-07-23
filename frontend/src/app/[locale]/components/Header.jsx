@@ -1,4 +1,5 @@
 
+
 import { useTranslations, useLocale } from 'next-intl';
 import HeaderMenu from "./HeaderMenu"
 import { MdLanguage } from "react-icons/md";
@@ -13,6 +14,7 @@ import LanguageIcon from './LanguageIcon'
 
 
 import Link from 'next/link';
+
 // import { useState, useEffect } from 'react';
 // import { usePathname, useSearchParams, useRouter } from 'next/navigation';
 // import { Search, Menu, X } from 'lucide-react';
@@ -41,15 +43,6 @@ export default function Header() {
 
 
 
-  // const changeLanguage = (e) => {
-  //   const newLocale = e.target.value;
-  //   if (!newLocale) return
-  //   const segments = pathname.split('/');
-  //   segments[1] = newLocale;
-  //   router.replace(segments.join('/'));
-
-  // }
-
 
 
   return (
@@ -65,6 +58,7 @@ export default function Header() {
           </div>
          <div  className='xl:w-1/3 flex justify-end items-center gap-5 '>
           <SearchBar/>
+        
           <LanguageIcon/>
          </div>
       

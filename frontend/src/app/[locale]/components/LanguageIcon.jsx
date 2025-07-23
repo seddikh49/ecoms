@@ -1,10 +1,39 @@
-import React from 'react'
+'use client'
+import React, { useState } from 'react'
 import { MdLanguage } from "react-icons/md";
+import { useTranslations, useLocale } from 'next-intl';
+import { usePathname, useSearchParams, useRouter } from 'next/navigation';
+
+
+
 
 const LanguageIcon = () => {
+  const locale = useLocale(); // يعيد: "ar", "en", ...
+  const [language, setLanguage] = useState(locale);
+  const pathname = usePathname()
+  const router = useRouter();
+
+
+
+  const changeLanguage = (e) => {
+    const newLocale = e.target.value;
+    if (!newLocale) return
+    const segments = pathname.split('/');
+    segments[1] = newLocale;
+    router.replace(segments.join('/'));
+
+  }
+
   return (
     <div>
-        <MdLanguage className='w-5 h-5 hover:text-black hoverEffect'/>  
+    
+      <div className='flex items-center rounded-2xl  p-1'>
+        <MdLanguage className='xl:text-2xl lg:text-xl sm:text-xl  xm:text-md' />
+        <select className=' rounded-md' onChange={(e) => changeLanguage(e)} defaultValue={language}>
+          <option value='ar' key='ar'>العربية </option>
+          <option value='an' key='an'>الانجليزية </option>
+        </select>
+      </div>
     </div>
   )
 }
