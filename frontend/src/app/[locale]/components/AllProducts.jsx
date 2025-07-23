@@ -4,12 +4,13 @@ import ProductCard from './ProductCard'
 import { Loader2, Repeat } from 'lucide-react';
 import NoProductsAvailable from './NoProductsAvailable'
 import { AnimatePresence, motion } from 'framer-motion';
+import { useShop } from '../context/shopContext';
 
 
 const AllProducts = ({ products, categories }) => {
     const [loading, setLoading] = useState(false);
     const [allProducts, setAllProducts] = useState(products);
-
+    const { language, setLanguage } = useShop()
 
 
     const [allCategories, setAllCategories] = useState(categories);
@@ -45,7 +46,7 @@ const AllProducts = ({ products, categories }) => {
 
 
     return (
-        <div className='w-full'>
+        <div className='w-full' dir={language === 'ar' ? 'rtl' : 'ltr'}  >
             <div className='flex justify-center items-center '>
                 <div className='flex items-center gap-1.5'>
                     {allCategories?.map((c) => {

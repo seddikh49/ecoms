@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { wilayas } from "../../../../public/‏‏assets/frontend_assets/wilayas";
 import { communes } from "../../../../public/‏‏assets/frontend_assets/communes";
 // import { assets } from "@/public/‏‏assets/frontend_assets/assets";
+import { useTranslations, useLocale } from 'next-intl';
 
 
 
@@ -37,6 +38,7 @@ export const ShopProvider = ({ children, initialProducts }) => {
   const [totalPrice, settotalPrice] = useState(0);
   const [rotateIcon, setRotateIcon] = useState(true);
   const [nameConfirmation, setnameConfirmation] = useState();
+   const [language, setLanguage] = useState('');
 
 
 
@@ -108,6 +110,8 @@ export const ShopProvider = ({ children, initialProducts }) => {
     search,
     setSearch,
     // backend_url,
+    language, 
+    setLanguage,
     router,
     wilayas,
     communes,

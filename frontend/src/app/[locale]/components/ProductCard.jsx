@@ -21,7 +21,7 @@ const ProductCard = ({ product }) => {
               height={500}
               alt='productImage'
               priority
-              className='w-full h-74  object-contain overflow-hidden group-hover:scale-105 hoverEffect '
+              className='w-full  object-contain overflow-hidden group-hover:scale-105 hoverEffect '
               />
           </Link>
         )}
