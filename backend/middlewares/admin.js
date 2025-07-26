@@ -9,9 +9,7 @@ const authAdmin = async (req, res, next) => {
         if (!origin) {
             return res.json({ msg: "This origin is not allowed a" })
         }
-        console.log(req.headers)
-        // console.log(authorization.split(' ')[1])
-
+        
         if (authorization) {
             
             if (!authorization.split(' ')[1]) {

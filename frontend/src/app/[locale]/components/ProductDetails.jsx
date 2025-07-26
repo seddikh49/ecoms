@@ -152,8 +152,6 @@ const ProductDetails = ({ product }) => {
 
 
 
-
-
     return (
         <>
             {loadTimer ? <div className='w-full h-[93vh] flex justify-center items-center'>
@@ -161,7 +159,7 @@ const ProductDetails = ({ product }) => {
                     <h1 className='font-extrabold text-2xl'>KAMSED</h1>
                     <div className='flex text-green-700 gap-1 font-bold '>
                         <Loader2 className='animate-spin' />
-                    <h3 className=''>Kamsed is loading...</h3>
+                        <h3 className=''>Kamsed is loading...</h3>
                     </div>
                 </div>
             </div> :
@@ -170,13 +168,17 @@ const ProductDetails = ({ product }) => {
                     <div className='w-full max-h-max gap-10 sm:px-10 mb-5   flex xl:flex-row lg:flex-row md:flex-col sm:flex-col  xm:flex-col mt-10 '>
 
                         <div className='xl:w-1/2 lg:w-1/2 md:w-full  h-max flex flex-col md:items-center lg:items-end xl:items-end sm:items-end xm:items-end  sm:justify-start   '>
-                            <div className='flex p-8 flex-col items-end gap-2 pb-3 sm:ml-auto ' >
+                            <motion.div className='flex p-8 flex-col items-end gap-2 pb-3 sm:ml-auto '
+                                initial={{ opacity: 0, x: -50 }}
+                                animate={{ opacity: 1, x: 0 }}
+                                transition={{ duration: 0.5 }}
+                            >
                                 <p className='text-xl font-bold'>{product.name}</p>
                                 <div className='flex text-2xl gap-1 font-bold'>
                                     <h1>{currency} </h1>
                                     <h4 className='text-xl'>{product.price}  </h4>
                                 </div>
-                            </div>
+                            </motion.div>
 
                             <motion.form
                                 initial={{ opacity: 0, x: -50 }}
@@ -260,7 +262,7 @@ const ProductDetails = ({ product }) => {
                                     </div>
                                     <div className="p-4 space-y-4 text-sm text-gray-700">
                                         <div className=" flex justify-between">
-                                            <p>{product.name}</p>
+                                            <p className=' '>{product.name.slice(0,30)}...</p>
                                             <h2 className="font-bold">: المنتج</h2>
 
                                         </div>
@@ -320,31 +322,42 @@ const ProductDetails = ({ product }) => {
 
 
                         <motion.div
-                            initial={{ opacity: 0  }}
-                            animate={{ opacity: 1}}
+                            initial={{ opacity: 0 ,x:50}}
+                            animate={{ opacity: 1, x :0}}
                             transition={{ duration: 0.5 }}
                             className='xl:w-1/2 lg:w-1/2 md:w-[100%] overflow-hidden flex flex-col gap-2 justify-center md:items-center sm:items-center xm:items-center xl:items-start '>
                             {/* <AnimatePresence mode='wait'> */}
+                            <AnimatePresence mode='wait'>
+                                <motion.div
+                                    // key={product?.image[imageIndex]} // مهم جداً لتغيير الصورة
+                                    key={product.image[imageIndex]}
+                                    initial={{ opacity: 0 }}
+                                    animate={{ opacity: 1 }}
+                                    exit={{ opacity: 0 }}
+                                    transition={{ duration: .5 }}
+                                    className='overflow-hidden xl:w-[500px] lg:w-[400px] md:w-[100%]  xm:w-[90%] border-gray-300 border rounded-md group flex flex-col gap-2 justify-center md:items-center sm:items-center xm:items-center xl:items-start '>
+                                    <Image
+                                        priority
+                                        width={500} height={500} src={product.image[imageIndex]} alt=""
+                                        className=' group-hover:scale-110  xl:w-[500px] hoverEffect lg:w-[400px] md:w-[100%] xm:w-[100%] sm:w-[100%]' />
+                                </motion.div>
+                            </AnimatePresence>
+
+                            {/* </AnimatePresence> */}
                             <motion.div
-                                key={product?.image[imageIndex]} // مهم جداً لتغيير الصورة
                                 initial={{ opacity: 0 }}
                                 animate={{ opacity: 1 }}
                                 exit={{ opacity: 0 }}
-                                transition={{ duration: 0.3 }}
-                                className='overflow-hidden xl:w-[500px] lg:w-[400px] md:w-[100%]  xm:w-[90%] border-gray-300 border rounded-md group flex flex-col gap-2 justify-center md:items-center sm:items-center xm:items-center xl:items-start '>
-                                <Image
-                                    width={500} height={500} src={product.image[imageIndex]} alt=""
-                                    className=' group-hover:scale-110  xl:w-[500px] hoverEffect lg:w-[400px] md:w-[100%] xm:w-[100%] sm:w-[100%]' />
-                            </motion.div>
-                            {/* </AnimatePresence> */}
-                            <div className='grid grid-cols-4 xl:w-[500px] lg:w-[400px] md:w-full gap-2 sm:w-[90%] xm:w-[90%] '>
+                                transition={{ duration: 1.5 }}
+
+                                className='grid grid-cols-4 xl:w-[500px] lg:w-[400px] md:w-full gap-2 sm:w-[90%] xm:w-[90%] '>
                                 {product.image.map((img, index) => {
                                     return (
-                                        <img key={index} onClick={() => setimageIndex(index)} className={`cursor-pointer ${index === imageIndex && "border-1 border-gray-400 rounded-sm"}`} src={img} alt="" />
+                                        <img key={index} onClick={() => setimageIndex(index)} className={`cursor-pointer ${index === imageIndex && "border-2 border-gray-500 rounded-sm"}`} src={img} alt="" />
                                     )
                                 })}
 
-                            </div>
+                            </motion.div>
                         </motion.div>
                     </div>
 

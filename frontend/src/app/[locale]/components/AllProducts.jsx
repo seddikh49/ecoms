@@ -7,7 +7,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { useShop } from '../context/shopContext';
 
 
-const AllProducts = ({ products, categories }) => {
+const AllProducts = ({ products, categories, slicer }) => {
     const [loading, setLoading] = useState(false);
     const [allProducts, setAllProducts] = useState(products);
     const { language, setLanguage } = useShop()
@@ -55,7 +55,7 @@ const AllProducts = ({ products, categories }) => {
                     })}
                     <button className='border border-black p-2 
                       rounded-full  hover:text-white hover:bg-black hoverEffect '>
-                        <Repeat className=' w-5 h-5 ' />
+                        <Repeat className=' w-5 h-5 ' onClick={()=> setSelectedCategory('')} />
                     </button>
                 </div>
 
@@ -71,9 +71,10 @@ const AllProducts = ({ products, categories }) => {
                 ) : allProducts.length ? (
                     <div className='grid xl:grid-cols-4 lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-2 xm:grid-cols-1 mt-10 gap-8 w-full  '>
                         {
-                            allProducts?.map((item) => {
-                                return <div key={item.id}> <ProductCard product={item} /></div>
-                            })
+                           ( slicer > 0 ? allProducts?.slice(0, slicer)
+                                : allProducts)?.map((item) => {
+                                    return <div key={item.id}> <ProductCard product={item} /></div>
+                                })
                         }
                     </div>
                 ) :

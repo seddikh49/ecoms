@@ -11,10 +11,9 @@ import HomeBanner from './components/HomeBanner'
 
 
 export const metadata = {
-  title: "kamsed-store - متجر كامسد"
+  title: "Kamsed Store - متجر كامسد",
+  description: "متجر كامسد وجهتك المثالية للتسوق الإلكتروني، حيث نوفر منتجات مختارة بعناية وجودة عالية، مع تجربة تسوق سهلة وآمنة وخدمة عملاء متميزة.",
 };
-
-
 
 
 export default async function Home() {
@@ -25,7 +24,7 @@ export default async function Home() {
     <div className='' >
       <Container className='py-10'>
         <HomeBanner />
-        <ProductGrid />
+        <ProductGrid slicer={4} />
       </Container>
     </div>
   );

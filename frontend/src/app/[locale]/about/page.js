@@ -1,14 +1,13 @@
-"use client"
-import dynamic from 'next/dynamic';
+
+
 import React from 'react'
-
-import about from '../../../../public/‏‏assets/animation/about'
-
+import LottieAboutUs from '../components/LottieAboutUs';
 
 
-const Lottie = dynamic(() => import('lottie-react'), { ssr: false });
-
-
+export const metadata = {
+  title: "من نحن - About Us",
+  description: "نحن متجر إلكتروني ملتزم بتقديم أفضل المنتجات والخدمات لعملائنا. نسعى للتميز من خلال الجودة، المصداقية، وتجربة تسوق مريحة وآمنة للجميع.",
+};
 const About = () => {
 
 
@@ -22,10 +21,8 @@ const About = () => {
       </div>
       <div className='flex gap-5 xl:flex-row sm:flex-col xm:flex-col items-center justify-evenly mt-5'>
         <div>
-          <Lottie className='sm:w-[450px] xl:w-[600px] lg:w-[700px] md:w-[700px]'
-            animationData={about}
-            loop={true}
-          />
+         <LottieAboutUs/>
+
           {/* <img className='sm:w-[450px] xl:w-[500px] ' src={assets.about_img} alt="" /> */}
         </div>
         <div dir='rtl' className='flex flex-col gap-4 xl:w-1/2 sm:w-full font-cairo p-10 text-gray-700'>
@@ -38,7 +35,7 @@ const About = () => {
   
       </div>
 
-      <div dir='rtl' className='mt-10 flex xl:flex-row xm:flex-col gap-6 px-10'>
+      <div dir='rtl' className='mt-10 flex xl:flex-row xm:flex-col gap-6 px-10 mb-5'>
         <div className='flex xm:flex-col sm:flex-col xl:flex-row lg:flex-row justify-between items-start gap-6 '>
           <div className='py-5 px-10 border border-gray-300 rounded-xl shadow-lg flex gap-4 flex-col bg-white '>
             <h1 className='text-xl font-bold font-cairo text-gray-800'> ضمان الجودة :</h1>

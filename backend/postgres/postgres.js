@@ -24,7 +24,7 @@ export { connect, sequelize }
 
 
 
-// const sequelize = new Sequelize('kamsed49_ecommerce', 'kamsed49_hamaidi', 'hamaidi1237', {
+// const sequelize = new Sequelize('kamsed49_ecommerce','kamsed49_seddik','Seddik123**', {
 //   host: 'localhost',
 //   dialect:  'postgres' ,
 //   port: 5432,

@@ -16,6 +16,12 @@
       "label": "contact Us",
       "href": "/contact"
     }
+  },
+  "availability" :{
+       "available" : "No Products Available",
+       "sorry" : "We're sorry ,but there are no products matching at the moment.",
+       "restock" : "We're restocking shortly",
+       "backlater" : "Please check back later or explore our other porduct categories"
   }
 }
 

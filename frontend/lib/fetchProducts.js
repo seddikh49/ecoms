@@ -13,6 +13,7 @@ export async function fetchProducts() {
 
     const data = await res.json();
     return data.products || [];
+  
   } catch (error) {
     console.error("حدث خطأ أثناء جلب المنتجات:", error);
     return [];

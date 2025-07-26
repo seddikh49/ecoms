@@ -1,21 +1,19 @@
 
 
-"use client";
-
 import React from 'react';
-import dynamic from 'next/dynamic';
 
 
 import Link from 'next/link';
+import LottieContactUs from '../components/LottieContactUs'
 
 
-const Lottie = dynamic(() => import('lottie-react'), { ssr: false });
 
 
 
-import contact from '../../../../public/‏‏assets/animation/contact.json'
-
-
+export const metadata = {
+  title: "تواصل معنا - Contact Us",
+  description: "نحن هنا لخدمتك! تواصل معنا عبر النموذج أو وسائل الاتصال المتاحة للاستفسارات، الملاحظات، أو الدعم الفني. نحن نرحب بك دائمًا.",
+};
 
 
 const Contact = () => {
@@ -37,12 +35,8 @@ const Contact = () => {
             من نحن
           </Link>
         </div>
+        <LottieContactUs/>
 
-        <Lottie
-          className='xm:w-full xl:w-[600px] sm:w-[450px] lg:w-[700px] md:w-[650px]'
-          animationData={contact}
-          loop={true}
-        />
       </div>
     </div>
   );

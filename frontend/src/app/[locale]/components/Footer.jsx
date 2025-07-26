@@ -10,8 +10,8 @@ import { fetchCategories, quickLinksData } from '../../../../constants/index'
 
 
 const Footer = async() => {
-  const date = new Date()
    const categories = await fetchCategories();
+
 
   return (
     <div className='bg-white border-t'>

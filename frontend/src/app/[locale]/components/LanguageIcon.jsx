@@ -22,8 +22,6 @@ const LanguageIcon = () => {
 
 
   const changeLanguage = (e) => {
-    console.log(e.target.value)
-    console.log(language)
     const newLocale = e.target.value;
     if (!newLocale) return
     const segments = pathname.split('/');

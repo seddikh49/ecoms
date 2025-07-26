@@ -18,17 +18,19 @@ import { fetchProducts } from '../../../../lib/fetchProducts'
 import Image from 'next/image'
 import Link from 'next/link'
 import { Button } from '../../../../@/components/ui/button'
+import { usePathname } from 'next/navigation';
 
 const DialogContainer = ({ allProducts }) => {
-
+  const pathname = usePathname();
   const [search, setSearch] = useState('');
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [open, setOpen] = useState()
   const [showSearch, setShowSearch] = useState(false);
 
 
   useEffect(() => {
+    const array = pathname.split('/')
+    console.log(array[array.length - 2])
     if (!search) {
       return setProducts([])
     }
@@ -80,12 +82,12 @@ const DialogContainer = ({ allProducts }) => {
                       return (
                         <div className='flex items-center px-2 p-1  border-b-1 hover:bg-gray-100 hoverEffect' onClick={() => setShowSearch(false)} key={item.id}>
                           {/* <DialogClose asChild> */}
-                          <Link className='inline-block border overflow-hidden group  border-black/20 rounded-md md:w-16 md:h-16 sm:h-14 sm:w-14 xm:h-14 xm:w-14    xl:h-24 xl:w-24' onClick={() => setShowSearch(true)} href={`collection/${item.name}`} >
+                          <Link className='inline-block border overflow-hidden group  border-black/20 rounded-md md:w-16 md:h-16 sm:h-14 sm:w-14 xm:h-14 xm:w-14    xl:h-24 xl:w-24' onClick={() => setShowSearch(true)} href={`/collection/${item.name}` }  >
                             <Image className=" object-cover h-full w-full  group-hover:scale-110 hoverEffect  flex-shrink-0" width={200} height={200} alt='images' src={`${item.image[0]}`} />
                           </Link>
                           {/* </DialogClose> */}
                           <div className='flex-grow px-4 py-2 text-gray-800 '>
-                            <Link href={`collection/${item.name}`} className='' >
+                            <Link href={`/collection/${item.name}`} replace className='' >
                               <h2 className='xl:text-xl font-semibold line-clamp-1 '>
                                 {item.name}
                               </h2>
@@ -93,15 +95,16 @@ const DialogContainer = ({ allProducts }) => {
                                 {item.description.slice(0, 18)}...
                               </p>
                             </Link>
+
                             <div className='flex gap-1 font-semibold'>
                               <span>دج</span>
                               <h1 >{item.price}</h1>
                             </div>
 
                           </div>
-                          <Link href={`collection/${item.name}`} >
+                          {/* <Link href={`collection/${item.name}`} >
                             <Button className={'cursor-pointer w-60 bg-white border-black/20 text-black border hover:text-white'}>شراء المنتج</Button>
-                          </Link>
+                          </Link> */}
 
                         </div>
                       )

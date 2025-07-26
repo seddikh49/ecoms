@@ -2,7 +2,7 @@ import { sequelize } from '../postgres/postgres.js';
 import { DataTypes } from 'sequelize';
 
 const Order = sequelize.define("Order", {
-   id: {
+  id: {
     type: DataTypes.UUID,
     defaultValue: DataTypes.UUIDV4, // لإنشاء UUID تلقائي عند إدخال بيانات جديدة
     primaryKey: true
@@ -21,8 +21,8 @@ const Order = sequelize.define("Order", {
     allowNull: false,
     validate: {
       is: {
-        args: [/^0\d{9}$/],
-        msg: "رقم الهاتف يجب أن يبدأ بـ 0 ويتكون من 10 أرقام فقط",
+        args: [/^0[5-7]\d{8}$/],
+        msg: "رقم الهاتف يجب أن يبدأ بـ 05 أو 06 أو 07 ويتكون من 10 أرقام فقط",
       },
     },
   },
@@ -72,7 +72,7 @@ const Order = sequelize.define("Order", {
     defaultValue: DataTypes.NOW,
   },
 }, {
-   tableName: 'orders', // <-- اجبر Sequelize على استخدام اسم صغير
+  tableName: 'orders', // <-- اجبر Sequelize على استخدام اسم صغير
   timestamps: false,   // أوقف الحقول التلقائية createdAt و updatedAt
 });
 

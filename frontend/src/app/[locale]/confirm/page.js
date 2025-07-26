@@ -54,12 +54,12 @@ const Confirm = () => {
 
 
     return (
-        <div className='' dir='rtl'>
+        <div className='mb-10' dir='rtl' >
             {fullName !== '' ? (
                 <div>
                     <div className='flex justify-evenly xm:space-y-5 items-center md:flex-col sm:flex-col xm:flex-col xl:flex-row lg:flex-row'>
 
-                        <div className='lg:w-[450px] xl:w-[600px] md:w-full sm:w-full xm:w-full px-4 mt-10'>
+                        {/* <div className='lg:w-[450px] xl:w-[600px] md:w-full sm:w-full xm:w-full px-4 mt-10'>
                             <div className='absolute right-0 top-20'>
                                 <Lottie animationData={animationData2} loop={true} className='w-100' />
                             </div>
@@ -71,69 +71,107 @@ const Confirm = () => {
                             <h2 className='xl:text-4xl lg:text-3xl md:text-xl font-bold pb-4'>على ثقتك بنا وعلى طلبك الكريم</h2>
                             <p className='xl:text-2xl lg:text-xl md:text-xl font-bold'>يسعدنا خدمتك، وسنتصل بك خلال مدة قصيرة لتأكيد تفاصيل الطلب والتأكد من تلبية جميع احتياجاتك.
                                 .نحن دائمًا هنا لخدمتك ونتطلع إلى تقديم أفضل تجربة ممكنة</p>
+                        </div> */}
+                        <div className='relative lg:w-[450px] xl:w-[600px] w-full px-4 mt-10'>
+                            {/* لوتي أنيميشن */}
+                            <div className='absolute right-0 top-20 opacity-70 z-0'>
+                                <Lottie animationData={animationData2} loop={true} className='w-32' />
+                            </div>
+
+                            {/* المحتوى */}
+                            <div className='relative z-10 space-y-5 bg-white/70 backdrop-blur-md p-6 rounded-2xl shadow-xl border border-gray-200'>
+                                {/* العنوان + الاسم */}
+                                <div className='flex flex-wrap gap-3 items-center justify-center text-center'>
+                                    <h1 className='font-extrabold text-3xl sm:text-4xl text-gray-800 whitespace-nowrap py-2'>
+                                        شكرًا جزيلاً لك
+                                    </h1>
+                                    <h1 className='font-extrabold text-3xl sm:text-4xl bg-gradient-to-r from-yellow-400 via-amber-500 to-orange-500 text-transparent bg-clip-text drop-shadow-md whitespace-nowrap py-2'>
+                                        {nameConfirmation}
+                                    </h1>
+                                </div>
+
+                                {/* العنوان الفرعي */}
+                                <h2 className='text-2xl sm:text-3xl font-semibold text-gray-700 text-center'>
+                                    على ثقتك بنا وعلى طلبك الكريم
+                                </h2>
+
+                                {/* الفقرة التوضيحية */}
+                                <p className='text-lg sm:text-xl font-medium text-gray-600 leading-relaxed text-center'>
+                                    يسعدنا خدمتك، وسنتصل بك خلال مدة قصيرة لتأكيد تفاصيل الطلب والتأكد من تلبية جميع احتياجاتك.
+                                    <br />
+                                    نحن دائمًا هنا لخدمتك ونتطلع إلى تقديم أفضل تجربة ممكنة.
+                                </p>
+                            </div>
                         </div>
+
                         <div>
                             <Lottie animationData={animationData} loop={true} className='xl:w-[500px] lg:w-100 xm:w-full sm:w-full md:w-[500px]' />
                         </div>
                     </div>
 
 
-                    <div className='bg-gray-100/50  border-1   border-black/20 xl:w-1/2 sm:w-[90%] xm:w-[90%] lg:w-1/2 m-auto mt-10 shadow-lg rounded-xl '>
-                        <div className='flex justify-between items-center p-3  bg-gradient-to-r from-orange-400 to-orange-500 rounded-t-xl'>
-                            <FaCartShopping className='text-2xl text-white' />
-                            <h1 className='text-end  font-bold text-white text-xl pb-2'> تفاصيل الطلب :</h1>
+                    <div className="max-w-2xl mx-auto mt-12 rounded-3xl overflow-hidden shadow-xl border border-gray-200 bg-white/80 backdrop-blur-md">
+                        {/* العنوان العلوي */}
+                        <div className="flex items-center justify-between px-6 py-5 bg-gradient-to-r from-gray-900 to-gray-700 text-white rounded-t-3xl">
+                            <h1 className="text-xl font-bold tracking-wide">تفاصيل الطلب</h1>
+                            <FaCartShopping className="text-2xl" />
                         </div>
-                        <div className='flex flex-col gap-2'>
-                            <div className='flex  justify-between p-2 '>
-                                <h1 className='text-end font-bold xl:text-lg lg:text-lg xm:text-sm md:text-lg sm:text-md'> المنتج :</h1>
 
-                                <p className=' text-end  whitespace-nowrap font-bold xl:text-lg lg:text-lg md:text-lg xm:text-sm sm:text-md ' >{productName}</p>
-                            </div>
-                            <div>
-                                <div className='flex gap-2 justify-between p-2 '>
-                                    <h1 className=' text-end  font-bold xl:text-lg lg:text-lg md:text-lg xm:text-sm sm:text-md  '>  الكمية : </h1>
+                        {/* المحتوى */}
+                        <div className="divide-y divide-gray-200 px-6 py-6 space-y-5 text-gray-800">
 
-                                    <div className='flex gap-2 font-bold'>
-                                        <h1 className='font-bold'>{quantity} </h1>
-                                    </div>
-                                </div>
+                            {/* المنتج */}
+                            <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center">
+                                <span className="text-gray-600 text-sm sm:text-base">المنتج:</span>
+                                <span className="font-semibold text-base sm:text-lg text-gray-900">{productName}</span>
                             </div>
 
-                            <div className='flex justify-between gap-2 font-bold xl:text-lg lg:text-lg md:text-lg xm:text-sm sm:text-md p-2'>
-                                <h1>  سعر التوصيل :</h1>
-                                <div className='flex gap-2'>
-                                    <h1>{deliveryPrice}</h1>
-                                    <h1 className='font-bold'>{currency}</h1>
-                                </div>
+                            {/* الكمية */}
+                            <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center pt-4">
+                                <span className="text-gray-600 text-sm sm:text-base">الكمية:</span>
+                                <span className="font-semibold text-base sm:text-lg text-gray-900">{quantity}</span>
                             </div>
-                               <div className="flex justify-between font-bold text-lg p-3">
-                                  <span> سعر المنتج :</span>
-                                    <div className='flex gap-2'>
-                                      <h1> {totalPrice -  deliveryPrice}  </h1> <h1>{currency}</h1> 
-                                    </div>
-                                  
-                                </div>
-                            <div className='flex justify-between gap-2 font-bold text-lg border-t-1 border-black/20 p-3'>
-                                <h1 className='text-xl'>  السعر الاجمالي :</h1>
-                                <div className='flex gap-2 '>
-                                    <Lottie className='w-12 '
-                                        animationData={money}
-                                        loop={true}
-                                    />
-                                    <h1 className='pt-2'> {totalPrice} </h1>
-                                    <h1 className='font-bold pt-2'>{currency}</h1>
 
-                                </div>
+                            {/* سعر التوصيل */}
+                            <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center pt-4">
+                                <span className="text-gray-600 text-sm sm:text-base">سعر التوصيل:</span>
+                                <span className="font-semibold text-base sm:text-lg">
+                                    {deliveryPrice} <span className="text-sm">{currency}</span>
+                                </span>
+                            </div>
 
+                            {/* سعر المنتج */}
+                            <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center pt-4">
+                                <span className="text-gray-600 text-sm sm:text-base">سعر المنتج:</span>
+                                <span className="font-semibold text-base sm:text-lg">
+                                    {totalPrice - deliveryPrice} <span className="text-sm">{currency}</span>
+                                </span>
+                            </div>
+
+                            {/* السعر الإجمالي */}
+                            <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center pt-6 border-t border-gray-300">
+                                <span className="text-lg sm:text-xl font-bold text-gray-800">السعر الإجمالي:</span>
+                                <div className="flex items-center gap-2 pt-2 sm:pt-0">
+                                    <Lottie className="w-10 h-10" animationData={money} loop={true} />
+                                    <span className="text-xl font-extrabold text-emerald-600">{totalPrice}</span>
+                                    <span className="text-md font-bold text-gray-700">{currency}</span>
+                                </div>
                             </div>
                         </div>
                     </div>
+
+
+
+
+
+
+
                 </div>
             ) :
 
-                <div className='flex justify-between items-center flex-col gap-8'>
-                    <h1 className='xl:text-6xl lg:text-5xl md:text-5xl sm:text-5xl xm:text-4xl  '>أدخل معلومات الشراء</h1>
-                    <Link className={'bg-orange-400 rounded-lg font-bold px-4 flex items-center justify-center text-white  h-13 text-xl'} href={'/collection'} >الذهاب الى صفحة المنتجات</Link>
+                <div className='flex justify-between items-center flex-col gap-8 py-10'>
+                    <h1 className='xl:text-4xl lg:text-3xl md:text-3xl sm:text-2xl xm:text-2xl  '>أدخل معلومات الشراء</h1>
+                    <Link className={'bg-black rounded-lg font-bold  flex items-center justify-center px-4 text-white hoverEffect border-1 py-1 text-lg hover:bg-white hover:text-black'} href={'/collection'} >الذهاب الى صفحة المنتجات</Link>
 
 
                 </div>

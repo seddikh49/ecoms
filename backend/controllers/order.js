@@ -3,7 +3,7 @@ import Order from "../models/orders.js";
 
 const addOrder = async (req, res) => {
 
-
+   console.log(req.headers)
     try {
         const { fullName, phone, wilaya, commune, productName, quantity, status, notification } = req.body;
         // console.log(fullName, phone, wilaya, commune, productName, quantity, status, notification )
@@ -27,6 +27,7 @@ const addOrder = async (req, res) => {
             // لو عندك حقل التاريخ وتبي تحط التاريخ الحالي تلقائياً، Sequelize يتعامل معه لو معرفته defaultValue
         });
         console.log({"===>" : order})
+        console.log("message")
         res.json({ success: true, msg: "تم طلب المنتج بنجاح " });
     } catch (error) {
         res.json({ success: false, msg: error })

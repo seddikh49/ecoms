@@ -18,7 +18,6 @@ export default async function Collection() {
     return (
         <>
             <Container className='py-10 '>
-               
                 <ProductGrid />
             </Container>
         </>

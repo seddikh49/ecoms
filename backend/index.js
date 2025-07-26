@@ -11,26 +11,29 @@ import cors from 'cors'
 import authAdmin from './middlewares/admin.js';
 
 
-const allowedOrigins = [
-  'http://localhost:3002',
-   'http://localhost:5000'
-];
 
-const corsOptions = {
-  origin: function (origin, callback) {
-    if (!origin || allowedOrigins.includes(origin)) {
-      callback(null, true);
-    } else {
-      callback(new Error('Not allowed by CORS'));
-    }
-  },
-  methods: ['GET', 'POST', 'PUT', 'DELETE'],
-  allowedHeaders: ["Content-Type", "Authorization"],
-  credentials: true,
-  maxAge: 600
-};
 
-app.use(cors(corsOptions));
+// const allowedOrigins = [
+//   'http://localhost:3002',
+//    'http://localhost:5000',
+//    'http://192.168.1.2:3002'
+// ];
+
+// const corsOptions = {
+//   origin: function (origin, callback) {
+//     if (!origin || allowedOrigins.includes(origin)) {
+//       callback(null, true);
+//     } else {
+//       callback(new Error('Not allowed by CORS'));
+//     }
+//   },
+//   methods: ['GET', 'POST', 'PUT', 'DELETE'],
+//   allowedHeaders: ["Content-Type", "Authorization"],
+//   credentials: true,
+//   maxAge: 600
+// };
+app.use(express.json());
+app.use(cors());
 
 
 dotenv.config();
