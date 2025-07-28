@@ -18,13 +18,13 @@ export const metadata = {
 
 const Contact = () => {
   return (
-    <div className='flex flex-col  justify-center md:items-center sm:items-center xl:items-center lg:items-center xm:items-end mb-23'>
-      <div className='mt-10 text-black text-center px-10'>
-       
-      </div>
+    <div className='flex flex-col  justify-center   xl:items-center lg:items-center xm:items-end mb-23'>
+      {/* <div className='mt-10 text-black text-center px-10'>
+       fddfgfd
+      </div> */}
 
-      <div className='flex  xm:items-end xm:px-10 justify-between lg:flex-row xl:flex-row md:flex-col-reverse sm:flex-col-reverse xm:flex-col-reverse lg:items-center xl:items-center gap-5 text-gray-500'>
-        <div dir='rtl' className='font-cairo flex flex-col gap-3 justify-center items-start'>
+      <div className='flex px-5  xm:items-end  justify-between lg:flex-row xl:flex-row md:flex-col-reverse sm:flex-col-reverse xm:flex-col-reverse lg:items-center xl:items-center gap-5 text-gray-500'>
+        <div dir='rtl' className='font-cairo flex flex-col gap-3 justify-center items-start xm:text-center sm:text-center'>
           <h1 className='text-2xl font-bold text-gray-800'>متجرنا</h1>
           <p>القديد</p>
           <p>الجلفة - الجزائر</p>

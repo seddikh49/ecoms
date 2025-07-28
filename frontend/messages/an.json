@@ -52,6 +52,18 @@
     "place": "Djelfa , Algeria"
   },
   "footer": {
+    "quickLinks": "Quick Links",
+    "ourCategories": "Our Categries",
+    "beTheFirst": "Be the First to Know What's New",
+    "beTheFirstP": "Exclusive offers, fresh trends, and looks tailored to your style.",
     "siteDescription": "Discover carefully curated fashion collections at Kamsed, where style meets comfort to elevate your everyday look."
+  },
+  "dialog":{
+    "ProductSearchBar":"Product Searchbar",
+    "SearchAndExplore":"Search and explore your products from Kamsed",
+    "searchPlaceHolder" : "search product here..."   ,
+     "keyword" : "Nothing match with the keyword ",
+    "trySomething" :",Please try something else",
+    "progress" : "searching on progress..."
   }
 }

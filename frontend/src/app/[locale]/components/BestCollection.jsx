@@ -4,7 +4,7 @@ const BestCollection = () => {
       const t = useTranslations()
   
   return (
-    <div>
+    <div >
       {t('bestCollection')}
     </div>
   )

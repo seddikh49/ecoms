@@ -50,12 +50,12 @@ const AllProducts = ({ products, categories, slicer }) => {
             <div className='flex justify-center items-center '>
                 <div className='flex items-center gap-1.5'>
                     {allCategories?.map((c) => {
-                        return <button onClick={() => changeSelected(c)} className={`border cursor-pointer border-black px-4 xl:py-1 xl:px-6
-                      rounded-full text-black font-medium  hover:text-white hover:bg-black hoverEffect ${c?.name === selectedCategory && 'bg-black text-white'}`} key={c.id}>{c.name} </button>
+                        return <button onClick={() => changeSelected(c)} className={`border cursor-pointer border-black   xl:px-6 lg:px-6 md:px-6 sm:px-6 xm:px-2
+                      rounded-full text-black font-semibold  hover:text-white hover:bg-black hoverEffect xm:text-sm sm:text-md md:text-lg xl:text-lg ${c?.name === selectedCategory && 'bg-black text-white'}`} key={c.id}>{c.name} </button>
                     })}
                     <button className='border border-black p-2 
                       rounded-full  hover:text-white hover:bg-black hoverEffect '>
-                        <Repeat className=' w-5 h-5 ' onClick={()=> setSelectedCategory('')} />
+                        <Repeat className=' w-4 h-4 ' onClick={()=> setSelectedCategory('')} />
                     </button>
                 </div>
 

@@ -38,14 +38,14 @@ const FooterTop = () => {
   ]
 
   return (
-    <div  dir={language === 'ar' ? "rtl" : "ltr"} className='grid xl:grid-cols-4 mt-5 lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-2 xm:grid-cols-2 border border-b border-x-0 border-t-0 '>
+    <div  dir={language === 'ar' ? "rtl" : "ltr"} className='grid  xl:grid-cols-4 mt-5 lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-2 gap-3 xm:grid-cols-2 border border-b border-x-0 border-t-0 '>
       {data.map((item, index) => {
         return (
-          <div className='flex justify-center items-center gap-3 group hover:bg-gray-50 p-4 transition-colors hoverEffect' key={index}>
+          <div className='flex sm:justify-start xl:justify-center lg:justify-center items-center gap-3 group hover:bg-gray-50 p-4  transition-colors hoverEffect' key={index}>
             <p>{item.icon} </p>
             <div>
-              <h1 className='text-black font-semibold'>{item.title}</h1>
-              <h2 className='group-hover:text-black' >{item.subtitle} </h2>
+              <h1 className='text-black font-semibold xl:text-lg lg:text-[16px] md:text-lg sm:text-[15px] xm:text-[8px] whitespace-nowrap'>{item.title}</h1>
+              <h2 className='group-hover:text-black xl:text-lg lg:text-[17px]  md:text-lg sm:text-[15px] xm:text-[8px]' >{item.subtitle} </h2>
             </div>
           </div>)
       })}

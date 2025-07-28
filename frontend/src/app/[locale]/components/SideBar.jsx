@@ -52,13 +52,13 @@ const SideBar = ({ isOpen, onClose }) => {
                     </button>
                 </div>
 
-                <nav className={`capitalize flex pt-5 flex-col gap-4 text-base font-semibold tracking-wide    `}     >
+                <nav className={`capitalize flex mb-4 pt-5 flex-col gap-4 text-base font-semibold tracking-wide    `}     >
                     {navLinks.map((link) => (
                         <Link
                             onClick={onClose}
                             key={t(`${link}.href`)}
                             href={t(`${link}.href`)}
-                            className={`hover:text-white  group relative hoverEffect whitespace-nowrap  ${currentPath === t(`${link}.href`) ? "text-white" : "text-gray-400"}`}
+                            className={`hover:text-white bg-black  group relative hoverEffect whitespace-nowrap  ${currentPath === t(`${link}.href`) ? "text-white" : "text-gray-400"}`}
                         >
                             {t(`${link}.label`)}
                         </Link>

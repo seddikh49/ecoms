@@ -12,7 +12,7 @@ const LottieContactUs = () => {
         <div>
 
             <Lottie
-                className='xm:w-full xl:w-[600px] sm:w-[450px] lg:w-[700px] md:w-[650px]'
+                className='xm:w-full xl:w-[600px] sm:w-full lg:w-[500px] md:w-[750px]'
                 animationData={contact}
                 loop={true}
             />

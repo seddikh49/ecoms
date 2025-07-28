@@ -1,27 +1,31 @@
 "use client"
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { FaSearch } from 'react-icons/fa'
 import {
   Dialog,
-  DialogClose,
   DialogContent,
   DialogDescription,
   DialogHeader,
   DialogTitle,
   DialogTrigger,
 } from "../../../../@/components/ui/dialog"
+import { useTranslations } from 'next-intl'
 
-import { MdInput } from 'react-icons/md'
 import { Input } from '../../../../@/components/ui/input'
 import { Loader2, Search, X } from 'lucide-react'
-import { fetchProducts } from '../../../../lib/fetchProducts'
 import Image from 'next/image'
 import Link from 'next/link'
 import { Button } from '../../../../@/components/ui/button'
-import { usePathname } from 'next/navigation';
+
+
+import { useShop } from '../context/shopContext';
+
+
 
 const DialogContainer = ({ allProducts }) => {
-  const pathname = usePathname();
+    const {language } = useShop()
+    const b = useTranslations()
+  const d = useTranslations("dialog")
   const [search, setSearch] = useState('');
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -53,28 +57,28 @@ const DialogContainer = ({ allProducts }) => {
 
   return (
     <>
-      <Dialog open={showSearch} onOpenChange={() => setShowSearch(!showSearch)} >
+      <Dialog open={showSearch} onOpenChange={() => setShowSearch(!showSearch)}  >
         <DialogTrigger>
           <FaSearch className='w-5 h-5 hover:text-black hoverEffect cursor-pointer' />
         </DialogTrigger>
-        <DialogContent className="min-h-[90vh] max-h-[90vh] overflow-hidden flex flex-col ">
+        <DialogContent dir={language === 'ar' ? 'rtl' : 'ltr'} className="min-h-[90vh] max-h-[90vh] overflow-hidden flex flex-col ">
           <DialogHeader className={" h-max"}>
-            <DialogTitle>Product Searchbar</DialogTitle>
+            <DialogTitle>{d("ProductSearchBar")} </DialogTitle>
             <DialogDescription className={''}>
             </DialogDescription>
-            <form action="" className='relative overflow-hidden   '>
-              <Input value={search} onChange={(e) => setSearch(e.target.value)} type="" className='flex-1 rouded-md py-5 focus:border-2 rounded-br-md' placeholder='Search product here...' />
-              <button className='absolute flex justify-center items-center right-0 w-10 top-0 hover:bg-black hover:text-white hoverEffect bg-black/10 h-full rounded-br-md cursor-pointer rounded-tr-md '>
+            <form   action="" className='relative overflow-hidden bg-amber-500   '>
+              <Input value={search} onChange={(e) => setSearch(e.target.value)} type="" className='flex-1 rouded-md py-5 focus:border-2 rounded-br-md' placeholder={d("searchPlaceHolder")} />
+              <button className={`absolute flex justify-center items-center ${language === 'ar' ? 'left-0' : 'right-0'} w-10 top-0 hover:bg-black hover:text-white hoverEffect bg-black/10 h-full rounded-br-md cursor-pointer rounded-tr-md `}>
                 <Search className='w-5 h-5' />
               </button>
-              {search && <X onClick={() => setSearch('')} className='absolute right-11 h-5 w-5 hover:text-red-400 hoverEffect top-3' />}
+              {search && <X onClick={() => setSearch('')} className={`absolute  ${language === 'ar' ? 'left-11' : 'right-11'} h-5 w-5 hover:text-red-400 hoverEffect top-3`} />}
             </form>
           </DialogHeader>
           <div className='border border-black/10  rounded-md  '>
             {search ? (
               <div className='w-full h-full p-2 rounded-md '>
 
-                {loading ? (<div className='flex gap-2 text-yellow-600 w-full px-6'> <Loader2 className='animate-spin' /><p>searching on progress...</p></div>) :
+                {loading ? (<div className='flex gap-2 text-yellow-600 w-full px-6'> <Loader2 className='animate-spin' /><p>{d('progress')} </p></div>) :
                   (<div className='overflow-y-scroll  h-[70vh]   ' >
                     {products.length ? products?.map((item) => {
                       return (
@@ -101,17 +105,17 @@ const DialogContainer = ({ allProducts }) => {
 
                           </div>
                           <Link href={`/collection/${item.name}`} >
-                            <Button className={'cursor-pointer   xl:w-60 bg-white border-black/20 text-black border hover:text-white xm:w-15 text-[10px]'}>شراء المنتج</Button>
+                            <Button className={'cursor-pointer   xl:w-60 bg-white border-black/20 text-black border hover:text-white xm:w-15 text-[10px]'}> {b('buyBtn')}</Button>
                           </Link>
 
                         </div>
                       )
-                    }) : <p className='text-center line-clamp-2 px-2'>Nothing match with the keyword <span className='font-semibold underline text-red-900 px-2'>{""}"{search}" </span> ,Please try something else</p>}
+                    }) : <p className='text-center line-clamp-2 px-2'>{d('keyword')} <span className='font-semibold underline text-red-900 px-2'>{""}"{search}" </span> {d('trySomething')} </p>}
                   </div>)}
               </div>
-            ) : <div className='flex py-10 text-green-600 justify-center items-center gap-2 xl:text-lg lg:text-lg md:text-sm sm:text-sm xm:text-[10px] px-1 tracking-wider'>
+            ) : <div className='flex py-10 text-green-600 justify-center  items-center gap-2 xl:text-lg lg:text-lg md:text-lg sm:text-[15px] font-bold  xm:text-[10px] px-1 tracking-wider'>
               <Search className='' />
-              Search and explore your products from Kamsed
+              <h1 className='whitespace-nowrap'>{d("SearchAndExplore")} </h1>
             </div>}
             {/* <DialogClose asChild>
             <Button type="button" variant="secondary">

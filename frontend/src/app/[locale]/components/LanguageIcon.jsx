@@ -35,9 +35,9 @@ const LanguageIcon = () => {
     
       <div className='flex items-center rounded-2xl  p-1'>
         <MdLanguage className='xl:text-2xl lg:text-xl sm:text-xl  xm:text-md' />
-        <select className=' rounded-md' onChange={(e) => changeLanguage(e)} value={language} >
-          <option value='ar' key='ar'>العربية</option>
-          <option value='an' key='an'>الانجليزية</option>
+        <select className='cursor-pointer rounded-md' onChange={(e) => changeLanguage(e)} value={language} >
+          <option className='cursor-pointer' value='ar' key='ar'>العربية</option>
+          <option className='cursor-pointer' value='an' key='an'>الانجليزية</option>
         </select>
       </div>
     </div>
