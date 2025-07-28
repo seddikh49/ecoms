@@ -7,14 +7,14 @@ import SideBar from "./SideBar"
 
 const MobileMenu = () => {
 
-  const [isOpenSideBar, setisOpenSideBar] = useState(false);
+  const [isOpenSideBar, setIsOpenSideBar] = useState(false);
   return (
    <>
-    <button onClick={()=> setisOpenSideBar(!isOpenSideBar)}  className='sm:flex cursor-pointer xm:flex xl:hidden md:flex  lg:hidden'>
+    <button onClick={()=> setIsOpenSideBar(!isOpenSideBar)}  className='sm:flex cursor-pointer xm:flex xl:hidden md:flex  lg:hidden'>
       <FaAlignLeft className='text-gray-700 text-xl hoverEffect'/>
     </button>
     <div>
-      <SideBar isOpen={isOpenSideBar} onClose={()=> setisOpenSideBar(false)}/>
+      <SideBar isOpen={isOpenSideBar} onClose={()=> setIsOpenSideBar(false)}/>
     </div>
    </>
   )

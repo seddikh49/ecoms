@@ -17,11 +17,41 @@
       "href": "/contact"
     }
   },
-  "availability" :{
-       "available" : "No Products Available",
-       "sorry" : "We're sorry ,but there are no products matching at the moment.",
-       "restock" : "We're restocking shortly",
-       "backlater" : "Please check back later or explore our other porduct categories"
+  "availability": {
+    "available": "No Products Available",
+    "sorry": "We're sorry ,but there are no products matching at the moment.",
+    "restock": "We're restocking shortly",
+    "backlater": "Please check back later or explore our other porduct categories"
+  },
+  "bestCollection": "Best Clothing Collection",
+  "lifeStyle": "find everything you need to look and feel best, and shop the latest men's fashion and lifestyle products",
+  "buyBtn": "Buy Now",
+  "details": "Order Details",
+  "orderDetails": {
+    "product": "Product",
+    "quantity": "Quantity",
+    "deliveryPrice": "Delivery Price",
+    "productPrice": "Product Price",
+    "totalPrice": "Total Price",
+    "productQuantity": "Product Quantity"
+  },
+  "formPlaceHolders": {
+    "fullName": "Full Name",
+    "phoneNumber": "Phone Number",
+    "wilaya": "Province",
+    "baladia": "City",
+    "confirmOrder": "Click here to confirm your order",
+    "confirmWhatsApp": "Order now on WhatsApp – Click here"
+  },
+  "footerTop": {
+    "visitUs": "Visit Us",
+    "callUs": "Call Us",
+    "workingHours": "Working Hours",
+    "emailUs": "Email Us",
+    "daily": "daily",
+    "place": "Djelfa , Algeria"
+  },
+  "footer": {
+    "siteDescription": "Discover carefully curated fashion collections at Kamsed, where style meets comfort to elevate your everyday look."
   }
 }
-

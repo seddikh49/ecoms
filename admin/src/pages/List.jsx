@@ -76,7 +76,7 @@ const List = ({ token }) => {
 
 
   return (
-    <div className='p-10 flex flex-col gap-6'>
+    <div className='p-10 flex flex-col '>
       <p className='mb-3 text-end font-bold xl:text-4xl lg:text-4xl md:text-3xl sm:text-2xl xm:text-2xl text-gray-800'>قائمة المنتجات</p>
 
 

@@ -29,8 +29,6 @@ const DialogContainer = ({ allProducts }) => {
 
 
   useEffect(() => {
-    const array = pathname.split('/')
-    console.log(array[array.length - 2])
     if (!search) {
       return setProducts([])
     }
@@ -82,8 +80,8 @@ const DialogContainer = ({ allProducts }) => {
                       return (
                         <div className='flex items-center px-2 p-1  border-b-1 hover:bg-gray-100 hoverEffect' onClick={() => setShowSearch(false)} key={item.id}>
                           {/* <DialogClose asChild> */}
-                          <Link className='inline-block border overflow-hidden group  border-black/20 rounded-md md:w-16 md:h-16 sm:h-14 sm:w-14 xm:h-14 xm:w-14    xl:h-24 xl:w-24' onClick={() => setShowSearch(true)} href={`/collection/${item.name}` }  >
-                            <Image className=" object-cover h-full w-full  group-hover:scale-110 hoverEffect  flex-shrink-0" width={200} height={200} alt='images' src={`${item.image[0]}`} />
+                          <Link className='inline-block border overflow-hidden group  border-black/20 rounded-md md:w-16 md:h-16 sm:h-15 sm:w-15 xm:h-15 xm:w-15   xl:h-24 xl:w-24' onClick={() => setShowSearch(true)} href={`/collection/${item.name}`}  >
+                            <Image className=" object-cover h-full w-full  group-hover:scale-110 hoverEffect  " width={200} height={200} alt='images' src={`${item.image[0]}`} />
                           </Link>
                           {/* </DialogClose> */}
                           <div className='flex-grow px-4 py-2 text-gray-800 '>
@@ -102,16 +100,16 @@ const DialogContainer = ({ allProducts }) => {
                             </div>
 
                           </div>
-                          {/* <Link href={`collection/${item.name}`} >
-                            <Button className={'cursor-pointer w-60 bg-white border-black/20 text-black border hover:text-white'}>شراء المنتج</Button>
-                          </Link> */}
+                          <Link href={`/collection/${item.name}`} >
+                            <Button className={'cursor-pointer   xl:w-60 bg-white border-black/20 text-black border hover:text-white xm:w-15 text-[10px]'}>شراء المنتج</Button>
+                          </Link>
 
                         </div>
                       )
                     }) : <p className='text-center line-clamp-2 px-2'>Nothing match with the keyword <span className='font-semibold underline text-red-900 px-2'>{""}"{search}" </span> ,Please try something else</p>}
                   </div>)}
               </div>
-            ) : <div className='flex py-10 text-green-600 justify-center items-center gap-1 tracking-wider'>
+            ) : <div className='flex py-10 text-green-600 justify-center items-center gap-2 xl:text-lg lg:text-lg md:text-sm sm:text-sm xm:text-[10px] px-1 tracking-wider'>
               <Search className='' />
               Search and explore your products from Kamsed
             </div>}

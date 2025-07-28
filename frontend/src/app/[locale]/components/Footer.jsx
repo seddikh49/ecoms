@@ -5,11 +5,13 @@ import Link from 'next/link'
 import SocialMedia from './SocialMedia'
 import { Button } from '../../../../@/components/ui/button'
 import { fetchCategories, quickLinksData } from '../../../../constants/index'
+import { useTranslations } from 'next-intl'
 
 
 
 
 const Footer = async() => {
+  const f = useTranslations('footer')
    const categories = await fetchCategories();
 
 
@@ -24,8 +26,10 @@ const Footer = async() => {
               KAMSED
             </Link>
             <p className='max-w-[250px]'>
-              Discover curated furniture collections at Tulos, blending style and comfort to elevate your living spaces.
-            </p>
+{
+ f('siteDescription')
+}            
+</p>
             <div>
               <SocialMedia />
             </div>
