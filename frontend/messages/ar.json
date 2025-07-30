@@ -1,4 +1,6 @@
 {
+  "loadingProduct" : "جاري تحميل المنتج...",
+  "kamsedLoading" : "...جارٍ تحميل كامسد" ,
   "links": {
     "home": {
       "label": "الصفحة الرئيسية",

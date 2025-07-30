@@ -34,6 +34,7 @@ const ProductDetails = ({ product }) => {
     const t = useTranslations()
     const od = useTranslations('orderDetails')
     const fbh = useTranslations('formPlaceHolders')
+    const lk = useTranslations()
     const router = useRouter()
     const [loading, setLoading] = useState(false);
     const [loadTimer, setLoadTimer] = useState(false);
@@ -173,7 +174,7 @@ const ProductDetails = ({ product }) => {
                     <h1 className='font-extrabold text-2xl'>KAMSED</h1>
                     <div className='flex text-green-700 gap-1 font-bold '>
                         <Loader2 className='animate-spin' />
-                        <h3 className=''>Kamsed is loading...</h3>
+                        <h3 className=''>{lk('kamsedLoading')} </h3>
                     </div>
                 </div>
             </div> :

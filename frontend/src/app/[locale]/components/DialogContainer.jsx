@@ -66,7 +66,7 @@ const DialogContainer = ({ allProducts }) => {
             <DialogTitle>{d("ProductSearchBar")} </DialogTitle>
             <DialogDescription className={''}>
             </DialogDescription>
-            <form   action="" className='relative overflow-hidden bg-amber-500   '>
+            <form   action="" className='relative overflow-hidden '>
               <Input value={search} onChange={(e) => setSearch(e.target.value)} type="" className='flex-1 rouded-md py-5 focus:border-2 rounded-br-md' placeholder={d("searchPlaceHolder")} />
               <button className={`absolute flex justify-center items-center ${language === 'ar' ? 'left-0' : 'right-0'} w-10 top-0 hover:bg-black hover:text-white hoverEffect bg-black/10 h-full rounded-br-md cursor-pointer rounded-tr-md `}>
                 <Search className='w-5 h-5' />

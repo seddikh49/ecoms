@@ -5,13 +5,14 @@ import { Loader2, Repeat } from 'lucide-react';
 import NoProductsAvailable from './NoProductsAvailable'
 import { AnimatePresence, motion } from 'framer-motion';
 import { useShop } from '../context/shopContext';
+import { useTranslations } from 'next-intl';
 
 
 const AllProducts = ({ products, categories, slicer }) => {
     const [loading, setLoading] = useState(false);
     const [allProducts, setAllProducts] = useState(products);
     const { language, setLanguage } = useShop()
-
+    const L = useTranslations()
 
     const [allCategories, setAllCategories] = useState(categories);
     const [selectedCategory, setSelectedCategory] = useState("");
@@ -65,7 +66,7 @@ const AllProducts = ({ products, categories, slicer }) => {
                     <motion.div className='flex items-center justify-center w-full
                                    bg-gray-100 rounded-lg space-x-2 py-10  mt-10  text-blue-800  '>
                         <Loader2 className='w-5 h-5 animate-spin' />
-                        <span className='text-xl font-semibold'>Product Loading...</span>
+                        <span className='text-xl font-semibold'>{L('loadingProduct')}</span>
                     </motion.div>
 
                 ) : allProducts.length ? (

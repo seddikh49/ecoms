@@ -9,8 +9,7 @@ import { useShop } from '../context/shopContext';
 
 const LanguageIcon = () => {
  
-  const locale = useLocale(); // يعيد: "ar", "en", ...
-  
+  const locale = useLocale(); 
   const {language, setLanguage} = useShop()
  
   const pathname = usePathname()

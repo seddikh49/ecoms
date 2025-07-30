@@ -2,6 +2,8 @@ import React, { createContext, useState, useEffect } from 'react';
 import axios from 'axios'
 import { backEndUrl } from '../App'
 
+
+  const apiKey = import.meta.env.VITE_SERVER_API_KEY
 // إنشاء السياق
 export const OrderContext = createContext();
 
@@ -18,9 +20,13 @@ const OrderContextProvider = ({ children }) => {
 
 
   const fetchOrders = async () => {
-  
+
     try {
-      const response = await axios.get(`${backEndUrl}/api/order/list`)
+      const response = await axios.get(`${backEndUrl}/api/order/list`, {
+        headers: {
+          'x-api-key': `${apiKey}`
+        }
+      })
 
       if (response.data.success) {
         setorders(response.data.orders)
@@ -39,21 +45,21 @@ const OrderContextProvider = ({ children }) => {
 
 
   const fetchCategories = async () => {
-        try {
-            const response = await axios.get(`${backEndUrl}/api/category/list`)
-            console.log(response)
-            if (response.data.success) {
-                setCategories(response.data.categories)
+    try {
+      const response = await axios.get(`${backEndUrl}/api/category/list`)
+      console.log(response)
+      if (response.data.success) {
+        setCategories(response.data.categories)
 
-            }
-        } catch (error) {
-            console.log(error)
-        }
+      }
+    } catch (error) {
+      console.log(error)
     }
+  }
 
-    useEffect(() => {
-        fetchCategories()
-    }, []);
+  useEffect(() => {
+    fetchCategories()
+  }, []);
 
 
 

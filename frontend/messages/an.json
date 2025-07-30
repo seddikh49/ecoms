@@ -1,4 +1,6 @@
 {
+   "loadingProduct" : "Product Loading...",
+    "kamsedLoading" : "Kamsed is loading...",
   "links": {
     "home": {
       "label": "home",

@@ -16,7 +16,7 @@ const FooterBottom = ({categories}) => {
   const { language } = useShop()
     const f = useTranslations('footer')
     const t = useTranslations('links')
-  console.log(language)
+
 
 
   return (
